@@ -20,7 +20,7 @@
 		glow
 	];
 
-	services.nix-daemon.enable = true;
+	#	services.nix-daemon.enable = true;
 	nix.package = pkgs.nix;
 
 	programs.zsh.enable = true;
@@ -62,4 +62,5 @@
 
 		# notification."com.apple.ncprefs".doNotDisturb = true;
 	};
+	system.stateVersion = 6;
 }

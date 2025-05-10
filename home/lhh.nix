@@ -3,10 +3,9 @@
 {
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
-home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    neovim
+		#    neovim
     alacritty
     tmux
     cmatrix
