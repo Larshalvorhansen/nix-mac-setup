@@ -1,0 +1,19 @@
+  ______                           ______ __                  __     _____  __                 __ 
+ /_  __/____ ___   __  __ _  __   / ____// /_   ___   ____ _ / /_   / ___/ / /_   ___   ___   / /_
+  / /  / __ `__ \ / / / /| |/_/  / /    / __ \ / _ \ / __ `// __/   \__ \ / __ \ / _ \ / _ \ / __/
+ / /  / / / / / // /_/ /_>  <   / /___ / / / //  __// /_/ // /_    ___/ // / / //  __//  __// /_  
+/_/  /_/ /_/ /_/ \__,_//_/|_|   \____//_/ /_/ \___/ \__,_/ \__/   /____//_/ /_/ \___/ \___/ \__/  
+                                                                                                  
+-------------------------
+Ctrl+b c   →  New window
+Ctrl+b n   →  Next window
+Ctrl+b p   →  Previous window
+Ctrl+b g   →  Split pane vertically
+Ctrl+b h   →  Split pane horizontally
+Ctrl+b o   →  Move to next pane
+Ctrl+b &   →  Kill current window
+Ctrl+b x   →  Kill current pane
+Ctrl+b r   →  Reload tmux config yey takk Oystekt
+Ctrl+b d   →  Detach session
+Ctrl+b [   →  Scroll mode (copy text)
+-------------------------
