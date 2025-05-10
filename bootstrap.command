@@ -41,7 +41,7 @@ nix --extra-experimental-features "nix-command flakes" \
   --flake "$HOME/nix-mac-setup#lhh-macbook" \
   --show-trace -vvvv
 
-# Clear all pinned Dock apps
+# Configure dock
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock autohide -bool true
