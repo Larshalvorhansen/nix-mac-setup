@@ -41,6 +41,10 @@ nix --extra-experimental-features "nix-command flakes" \
   --flake "$HOME/nix-mac-setup#lhh-macbook" \
   --show-trace -vvvv
 
+# Set global git identity
+git config --global user.name "larshalvorhansen"
+git config --global user.email "larshalvorhansen1@gmail.com"
+
 # Configure dock
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock show-recents -bool false
@@ -51,6 +55,9 @@ defaults write com.apple.dock tilesize -int 18
 defaults write com.apple.dock orientation -string "right"
 killall Dock
 
-osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/lhh/Desktop/Wallpaper.png"'
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/lhh/nix-mac-setup/wallpaper.png"'
+
+sudo scutil --set HostName lhh
 
 echo "Done. Welcome back Lars Halvor!(or anoyone else willing to try out my flake! <3)"
+
