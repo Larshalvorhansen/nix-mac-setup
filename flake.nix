@@ -26,7 +26,7 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.lhh = import ./home/lhh.nix { inherit pkgs config; };
+						home-manager.users.lhh = import ./home/lhh.nix { inherit pkgs; };
 					}
 				];
 			};
