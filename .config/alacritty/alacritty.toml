@@ -34,5 +34,5 @@ cyan    = "0x9cd1bb"
 white   = "0xeaf1f1"
 yellow  = "0xffd76d"
 
-[terminal]
-shell = { program = "/opt/homebrew/bin/tmux", args = ["new-session"]}
+#[terminal]
+#shell = { program = "tmux", args = ["new-session"]}
