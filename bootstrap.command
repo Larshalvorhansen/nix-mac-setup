@@ -43,4 +43,10 @@ nix --extra-experimental-features "nix-command flakes" \
 
 # Clear all pinned Dock apps
 defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock tilesize -int 18
+defaults write com.apple.dock orientation -string "right"
 killall Dock
