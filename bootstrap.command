@@ -40,3 +40,7 @@ nix --extra-experimental-features "nix-command flakes" \
   run github:lnl7/nix-darwin -- switch \
   --flake "$HOME/nix-mac-setup#lhh-macbook" \
   --show-trace -vvvv
+
+# Clear all pinned Dock apps
+defaults write com.apple.dock persistent-apps -array
+killall Dock
