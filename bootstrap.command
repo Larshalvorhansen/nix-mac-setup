@@ -50,3 +50,7 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock tilesize -int 18
 defaults write com.apple.dock orientation -string "right"
 killall Dock
+
+osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/lhh/Desktop/Wallpaper.png"'
+
+echo "Done. Welcome back Lars Halvor!(or anoyone else willing to try out my flake! <3)"
