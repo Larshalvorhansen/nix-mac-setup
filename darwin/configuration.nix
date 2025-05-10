@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
+  # ... other nix-darwin system settings ...
 
-{
+  # Define the user (lhh) and home for nix-darwin's sake:
+  users.users.lhh = {
+    home = "/Users/lhh";
+    description = "Main user account";
+    # (You can include other user settings here if needed, 
+    #  but nix-darwin will not create this user; it assumes it exists.)
+  };
 	environment.systemPackages = with pkgs; [
 		git
 		tmux
