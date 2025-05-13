@@ -13,6 +13,7 @@
 		git
 		zinit
 		tmux
+		tree-sitter
 		python3
 		cmatrix
 		typst

@@ -5,7 +5,6 @@
   home.homeDirectory = "/Users/lhh";
 
   home.packages = with pkgs; [
-		#    neovim
     alacritty
     tmux
     cmatrix
@@ -21,17 +20,39 @@
 
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+
     shellAliases = {
+      g = "git";
+      k = "kubectl";
+      ls = "eza --icons";
       ll = "ls -alh";
       gs = "git status";
     };
+
+    initExtra = ''
+      # Load zinit from GitHub
+      source ${pkgs.fetchFromGitHub {
+        owner = "zdharma-continuum";
+        repo = "zinit";
+        rev = "v3.8.0";
+sha256 = "sha256-yGUcwrwLXpsB3nzGITbi/0ycZej09GvozDoscEf7qp4=";
+      }}/zinit.zsh
+
+      # Plugins
+      zinit light zsh-users/zsh-autosuggestions
+      zinit light zsh-users/zsh-completions
+      zinit light zsh-users/zsh-syntax-highlighting
+
+      # Theme (optional)
+      zinit light romkatv/powerlevel10k
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
   };
 
   programs.tmux.enable = true;
   programs.git.enable = true;
   programs.neovim.enable = true;
-
-
 
   xdg.configFile."alacritty/alacritty.toml".source = ../.config/alacritty/alacritty.toml;
   xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
