@@ -1,80 +1,87 @@
 { config, pkgs, ... }:
 
 {
-  users.users.lhh = {
-    home = "/Users/lhh";
-    description = "Main user account";
-  };
 
-  environment.systemPackages = with pkgs; [
-    git
-    tmux
-    python3
-    cmatrix
-    typst
-    eza
-    neofetch
-    ffmpeg
-    glow
-    neovim
-    alacritty
-    element-desktop
-    firefox
-    google-chrome
-    signal-desktop
-    skim
-    spotify
-    vcv-rack
-    bitwarden-cli
-  ];
+	nixpkgs.config.allowUnfree = true;
 
-  nix.package = pkgs.nix;
-  programs.zsh.enable = true;
+	users.users.lhh = {
+		home = "/Users/lhh";
+		description = "Main user account";
+	};
 
-  # Optional: disable Homebrew completely
-  # homebrew.enable = false;
+	environment.systemPackages = with pkgs; [
+		git
+		tmux
+		python3
+		cmatrix
+		typst
+		eza
+		neofetch
+		ffmpeg
+		glow
+		neovim
+		alacritty
+		element-desktop
+		firefox
+		google-chrome
+		#signal-desktop
+		skim
+		spotify
+		#vcv-rack
+		#bitwarden-cli  #broken
+	];
 
-  # Or keep Homebrew only for these apps (mostly macOS GUI ones not available in nixpkgs)
-  homebrew.enable = true;
-  homebrew.casks = [
-    "ableton-live-standard"
-    "chatgpt"
-    "messenger"
-    "minecraft"
-    "raspberry-pi-imager"
-    "googleearth-pro"
-  ];
+	nix.package = pkgs.nix;
+	programs.zsh.enable = true;
 
-  system.defaults = {
-    dock = {
-      autohide = true;
-      orientation = "right";
-      magnification = false;
-      tilesize = 18;
-      show-recents = false;
-      autohide-delay = 0.0;
-      autohide-time-modifier = 0.0;
-      persistent-apps = [];
-    };
+		# other apps...
+	# Optional: disable Homebrew completely
+	# homebrew.enable = false;
 
-    finder.AppleShowAllFiles = true;
+	#Apps that arent supported yet on apple-darwin
+	homebrew.enable = true;
+	homebrew.casks = [
+		"ableton-live-standard"
+		"chatgpt"
+		"messenger"
+		"minecraft"
+		"signal"
+		"raspberry-pi-imager"
+		"googleearth-pro"
+		"vcv-rack"
+	];
 
-    NSGlobalDomain = {
-      AppleInterfaceStyle = "Dark";
-      AppleKeyboardUIMode = 3;
-      AppleShowAllExtensions = true;
-      InitialKeyRepeat = 15;
-      KeyRepeat = 2;
-      NSAutomaticWindowAnimationsEnabled = false;
-      NSDocumentSaveNewDocumentsToCloud = false;
-      NSNavPanelExpandedStateForSaveMode = true;
-      NSNavPanelExpandedStateForSaveMode2 = true;
-      PMPrintingExpandedStateForPrint = true;
-      PMPrintingExpandedStateForPrint2 = true;
-      _HIHideMenuBar = true;
-      "com.apple.keyboard.fnState" = true;
-    };
-  };
+	system.defaults = {
+		dock = {
+			autohide = true;
+			orientation = "right";
+			magnification = false;
+			tilesize = 18;
+			show-recents = false;
+			autohide-delay = 0.0;
+			autohide-time-modifier = 0.0;
+			persistent-apps = [];
+		};
 
-  system.stateVersion = 6;
-}
+		finder.AppleShowAllFiles = true;
+
+		NSGlobalDomain = {
+			AppleInterfaceStyle = "Dark";
+			AppleKeyboardUIMode = 3;
+			AppleShowAllExtensions = true;
+			InitialKeyRepeat = 15;
+			KeyRepeat = 2;
+			NSAutomaticWindowAnimationsEnabled = false;
+			NSDocumentSaveNewDocumentsToCloud = false;
+			NSNavPanelExpandedStateForSaveMode = true;
+			NSNavPanelExpandedStateForSaveMode2 = true;
+			PMPrintingExpandedStateForPrint = true;
+			PMPrintingExpandedStateForPrint2 = true;
+			_HIHideMenuBar = true;
+			"com.apple.keyboard.fnState" = true;
+		};
+	};
+
+
+system.stateVersion = 6;
+	}
