@@ -11,7 +11,6 @@
 
   environment.systemPackages = with pkgs; [
     aerospace
-    alacritty
     cmatrix
     element-desktop
     eza
@@ -45,6 +44,7 @@
   #Apps that arent supported yet on apple-darwin
   homebrew.enable = true;
   homebrew.casks = [
+		"aerospace"
     "ableton-live-standard"
     "chatgpt"
     "messenger"
