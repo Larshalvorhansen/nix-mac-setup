@@ -28,9 +28,6 @@
     tree-sitter
     tmux
     typst
-yabai
-		skhd
-    zinit
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack

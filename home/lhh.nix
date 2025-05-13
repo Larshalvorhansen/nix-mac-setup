@@ -31,7 +31,7 @@ tree = "eza --tree --icons";
       gs = "git status";
 
       conf = "nvim $HOME/nix-mac-setup/.config";
-      n = "nvim .";
+      n = "nvim";
     };
 
     initExtra = ''
