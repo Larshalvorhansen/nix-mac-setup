@@ -17,30 +17,32 @@
     ffmpeg
     glow
     neovim
+    alacritty
+    element-desktop
+    firefox
+    google-chrome
+    signal-desktop
+    skim
+    spotify
+    vcv-rack
+    bitwarden-cli
   ];
 
   nix.package = pkgs.nix;
   programs.zsh.enable = true;
 
+  # Optional: disable Homebrew completely
+  # homebrew.enable = false;
+
+  # Or keep Homebrew only for these apps (mostly macOS GUI ones not available in nixpkgs)
   homebrew.enable = true;
   homebrew.casks = [
     "ableton-live-standard"
-#    "aerospace"
-    "alacritty"
-    "bitwarden"
     "chatgpt"
-    "element"
-    "firefox"
-    "google-chrome"
     "messenger"
     "minecraft"
- #   "pixelmator-pro"
     "raspberry-pi-imager"
-    "signal"
-    "skim"
-    "spotify"
-    "vcv-rack"
-#    "balenaetcher"
+    "googleearth-pro"
   ];
 
   system.defaults = {
@@ -71,7 +73,6 @@
       PMPrintingExpandedStateForPrint2 = true;
       _HIHideMenuBar = true;
       "com.apple.keyboard.fnState" = true;
-      #reduceMotion = true;
     };
   };
 

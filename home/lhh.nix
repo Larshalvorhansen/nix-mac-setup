@@ -16,6 +16,7 @@
     glow
     yt-dlp
     cowsay
+    tree
   ];
 
   programs.zsh = {
