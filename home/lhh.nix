@@ -26,9 +26,12 @@
       g = "git";
       k = "kubectl";
       ls = "eza --icons";
-      ll = "ls -alh";
+tree = "eza --tree --icons";
+			ll = "ls -alh";
       gs = "git status";
-      conf = "cd ~/nix-mac-setup/.config $$ nvim .";
+
+      conf = "nvim $HOME/nix-mac-setup/.config";
+      n = "nvim .";
     };
 
     initExtra = ''
