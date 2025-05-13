@@ -34,7 +34,7 @@
 	nix.package = pkgs.nix;
 	programs.zsh.enable = true;
 
-		# other apps...
+	# other apps...
 	# Optional: disable Homebrew completely
 	# homebrew.enable = false;
 
@@ -51,36 +51,42 @@
 		"vcv-rack"
 	];
 
-	system.defaults = {
-		dock = {
-			autohide = true;
-			orientation = "right";
-			magnification = false;
-			tilesize = 18;
-			show-recents = false;
-			autohide-delay = 0.0;
-			autohide-time-modifier = 0.0;
-			persistent-apps = [];
-		};
+	
+	fonts.packages = with pkgs; [
+		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+	];
 
-		finder.AppleShowAllFiles = true;
 
-		NSGlobalDomain = {
-			AppleInterfaceStyle = "Dark";
-			AppleKeyboardUIMode = 3;
-			AppleShowAllExtensions = true;
-			InitialKeyRepeat = 15;
-			KeyRepeat = 2;
-			NSAutomaticWindowAnimationsEnabled = false;
-			NSDocumentSaveNewDocumentsToCloud = false;
-			NSNavPanelExpandedStateForSaveMode = true;
-			NSNavPanelExpandedStateForSaveMode2 = true;
-			PMPrintingExpandedStateForPrint = true;
-			PMPrintingExpandedStateForPrint2 = true;
-			_HIHideMenuBar = true;
-			"com.apple.keyboard.fnState" = true;
-		};
+system.defaults = {
+	dock = {
+		autohide = true;
+		orientation = "right";
+		magnification = false;
+		tilesize = 18;
+		show-recents = false;
+		autohide-delay = 0.0;
+		autohide-time-modifier = 0.0;
+		persistent-apps = [];
 	};
+
+	finder.AppleShowAllFiles = true;
+
+	NSGlobalDomain = {
+		AppleInterfaceStyle = "Dark";
+		AppleKeyboardUIMode = 3;
+		AppleShowAllExtensions = true;
+		InitialKeyRepeat = 15;
+		KeyRepeat = 2;
+		NSAutomaticWindowAnimationsEnabled = false;
+		NSDocumentSaveNewDocumentsToCloud = false;
+		NSNavPanelExpandedStateForSaveMode = true;
+		NSNavPanelExpandedStateForSaveMode2 = true;
+		PMPrintingExpandedStateForPrint = true;
+		PMPrintingExpandedStateForPrint2 = true;
+		_HIHideMenuBar = true;
+		"com.apple.keyboard.fnState" = true;
+	};
+};
 
 
 system.stateVersion = 6;
