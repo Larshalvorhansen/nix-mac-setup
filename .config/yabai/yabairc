@@ -1,0 +1,2 @@
+yabai -m rule --add app="^System Settings$" manage=off layer=above
+yabai -m rule --add app="^Spotify$" manage=off opacity=0.7 border=off

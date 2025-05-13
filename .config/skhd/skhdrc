@@ -1,0 +1,23 @@
+# focus windows
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+
+# move windows
+alt + shift - h : yabai -m window --warp west
+alt + shift - l : yabai -m window --warp east
+alt + shift - j : yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+
+# toggle float (for e.g. Spotify)
+alt - f : yabai -m window --toggle float
+
+# fullscreen toggle
+alt - return : yabai -m window --toggle zoom-fullscreen
+
+# restart yabai (nice for testing config reloads)
+alt + ctrl - r : yabai --restart-service
+
+# quit focused window
+alt + ctrl - q : yabai -m window --close

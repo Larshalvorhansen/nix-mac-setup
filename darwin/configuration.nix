@@ -93,8 +93,7 @@ yabai
 	#Yabai stuff:
 launchd.user.agents = {
   yabai = {
-    enable = true;
-    config = {
+    serviceConfig = {
       Program = "${pkgs.yabai}/bin/yabai";
       RunAtLoad = true;
       KeepAlive = true;
@@ -102,8 +101,7 @@ launchd.user.agents = {
   };
 
   skhd = {
-    enable = true;
-    config = {
+    serviceConfig = {
       Program = "${pkgs.skhd}/bin/skhd";
       RunAtLoad = true;
       KeepAlive = true;

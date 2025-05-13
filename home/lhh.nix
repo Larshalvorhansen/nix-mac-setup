@@ -63,23 +63,8 @@ sha256 = "sha256-yGUcwrwLXpsB3nzGITbi/0ycZej09GvozDoscEf7qp4=";
   xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;
   xdg.configFile."tmux/cheatsheet.txt".source = ../.config/tmux/cheatsheet.txt;
   xdg.configFile."aerospace/aerospace.toml".source = ../.config/aerospace/aerospace.toml;
-xdg.configFile."yabai/yabairc".text = ''
-  yabai -m config layout bsp
-  yabai -m config top_padding    10
-  yabai -m config bottom_padding 10
-  yabai -m config left_padding   10
-  yabai -m config right_padding  10
-  yabai -m config window_gap     10
-'';
-
-xdg.configFile."skhd/skhdrc".text = ''
-  alt - h : yabai -m window --focus west
-  alt - l : yabai -m window --focus east
-  alt - j : yabai -m window --focus south
-  alt - k : yabai -m window --focus north
-
-  alt - return : yabai -m window --warp mouse
-'';
+xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
+xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 
 
   home.stateVersion = "23.11";
