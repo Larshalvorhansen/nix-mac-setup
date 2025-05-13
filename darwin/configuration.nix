@@ -28,6 +28,8 @@
     tree-sitter
     tmux
     typst
+yabai
+		skhd
     zinit
     #bitwarden-cli  #broken
     #signal-desktop
@@ -44,7 +46,6 @@
   #Apps that arent supported yet on apple-darwin
   homebrew.enable = true;
   homebrew.casks = [
-		"aerospace"
     "ableton-live-standard"
     "chatgpt"
     "messenger"
@@ -88,6 +89,27 @@
       "com.apple.keyboard.fnState" = true;
     };
   };
+
+	#Yabai stuff:
+launchd.user.agents = {
+  yabai = {
+    enable = true;
+    config = {
+      Program = "${pkgs.yabai}/bin/yabai";
+      RunAtLoad = true;
+      KeepAlive = true;
+    };
+  };
+
+  skhd = {
+    enable = true;
+    config = {
+      Program = "${pkgs.skhd}/bin/skhd";
+      RunAtLoad = true;
+      KeepAlive = true;
+    };
+  };
+};
 
   system.stateVersion = 6;
 }
