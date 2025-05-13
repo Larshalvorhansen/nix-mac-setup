@@ -11,6 +11,7 @@
 
 	environment.systemPackages = with pkgs; [
 		git
+		zinit
 		tmux
 		python3
 		cmatrix
