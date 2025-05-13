@@ -28,7 +28,7 @@
       ls = "eza --icons";
       ll = "ls -alh";
       gs = "git status";
-      conf = "cd ~/nix-mac-setup/.config $$ nvim ."
+      conf = "cd ~/nix-mac-setup/.config $$ nvim .";
     };
 
     initExtra = ''
