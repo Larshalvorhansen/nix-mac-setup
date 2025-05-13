@@ -31,6 +31,8 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
 
+
+
   xdg.configFile."alacritty/alacritty.toml".source = ../.config/alacritty/alacritty.toml;
   xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
   xdg.configFile."gh/hosts.yml".source = ../.config/gh/hosts.yml;
