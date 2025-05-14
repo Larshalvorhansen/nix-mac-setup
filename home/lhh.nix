@@ -22,8 +22,10 @@
     stylua
     black
     prettier
+
     shfmt
     nixfmt
+nodePackages.prettier
     go
     rustfmt
     clang-tools_16
