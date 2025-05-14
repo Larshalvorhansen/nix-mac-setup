@@ -21,7 +21,6 @@
 
     stylua
     black
-    prettier
 
     shfmt
     nixfmt
