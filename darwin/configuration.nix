@@ -52,6 +52,13 @@
     "vcv-rack"
   ];
 
+system.activationScripts.masApps.text = ''
+  echo "Installing App Store apps with mas..."
+  mas install 937984704   # Amphetamine
+  mas install 1289583905  # Pixelmator Pro
+  mas install 1192318775  # GeoExpert – World Geography
+'';
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
