@@ -53,16 +53,14 @@
     "vcv-rack"
   ];
 
-system.activationScripts.masApps.text = ''
-  echo "Installing App Store apps with mas..."
-  mas install 937984704   # Amphetamine
-  mas install 1289583905  # Pixelmator Pro
-  mas install 1192318775  # GeoExpert – World Geography
-'';
+  system.activationScripts.masApps.text = ''
+    echo "Installing App Store apps with mas..."
+    mas install 937984704   # Amphetamine
+    mas install 1289583905  # Pixelmator Pro
+    mas install 1192318775  # GeoExpert – World Geography
+  '';
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   system.defaults = {
     dock = {
@@ -73,7 +71,7 @@ system.activationScripts.masApps.text = ''
       show-recents = false;
       autohide-delay = 0.0;
       autohide-time-modifier = 0.0;
-      persistent-apps = [];
+      persistent-apps = [ ];
     };
 
     finder.AppleShowAllFiles = true;
@@ -95,24 +93,24 @@ system.activationScripts.masApps.text = ''
     };
   };
 
-	#Yabai stuff:
-launchd.user.agents = {
-  yabai = {
-    serviceConfig = {
-      Program = "${pkgs.yabai}/bin/yabai";
-      RunAtLoad = true;
-      KeepAlive = true;
+  #Yabai stuff:
+  launchd.user.agents = {
+    yabai = {
+      serviceConfig = {
+        Program = "${pkgs.yabai}/bin/yabai";
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
     };
-  };
 
-  skhd = {
-    serviceConfig = {
-      Program = "${pkgs.skhd}/bin/skhd";
-      RunAtLoad = true;
-      KeepAlive = true;
+    skhd = {
+      serviceConfig = {
+        Program = "${pkgs.skhd}/bin/skhd";
+        RunAtLoad = true;
+        KeepAlive = true;
+      };
     };
   };
-};
 
   system.stateVersion = 6;
 }
