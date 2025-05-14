@@ -72,6 +72,7 @@
   programs.git.enable = true;
   programs.neovim.enable = true;
 
+
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
   xdg.configFile."alacritty/alacritty.toml".source =
