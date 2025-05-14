@@ -4,19 +4,21 @@
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
 
-  home.packages = with pkgs; [
-    alacritty
-    tmux
-    cmatrix
-    python3
-    eza
-    ffmpeg
-    typst
-    glow
-    yt-dlp
-    cowsay
-    tree
-  ];
+home.packages = with pkgs; [
+  alacritty
+  cmatrix
+  cowsay
+  eza
+  ffmpeg
+  gh
+  glow
+  mas
+  python3
+  tmux
+  tree
+  typst
+  yt-dlp
+];
 
   programs.zsh = {
     enable = true;
