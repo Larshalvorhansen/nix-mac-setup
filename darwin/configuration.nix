@@ -19,6 +19,7 @@
     git
     glow
     google-chrome
+    mas
     neofetch
     neovim
     nodejs
