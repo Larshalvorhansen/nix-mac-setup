@@ -6,28 +6,26 @@
 
   home.packages = with pkgs; [
     alacritty
+    black
+    clang-tools_16
     cmatrix
     cowsay
     eza
     ffmpeg
     gh
     glow
+    go
     mas
+    nixfmt
+    nodePackages.prettier
     python3
+    rustfmt
+    shfmt
+    stylua
     tmux
     tree
     typst
     yt-dlp
-
-    stylua
-    black
-
-    shfmt
-    nixfmt
-    nodePackages.prettier
-    go
-    rustfmt
-    clang-tools_16
   ];
 
   programs.zsh = {
