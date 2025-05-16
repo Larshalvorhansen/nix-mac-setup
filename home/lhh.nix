@@ -41,7 +41,9 @@
       gs = "git status";
 
       conf = "nvim $HOME/nix-mac-setup/.config";
+      nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
       n = "nvim";
+      todo = "nvim $HOME/Documents/dailyTodo/todo.md";
     };
 
     initExtra = ''
