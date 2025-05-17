@@ -111,6 +111,9 @@
     package = pkgs.skhd;
   };
 
+
+  services.sketchybar.enable = true;
+
   # Required for scripting addition
   security.accessibilityPrograms =
     [ "/Applications/Yabai.app" "${pkgs.yabai}/bin/yabai" ];
