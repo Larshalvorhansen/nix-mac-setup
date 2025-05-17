@@ -91,5 +91,5 @@
   xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
   xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 
-  home.stateVersion = "23.11";
+  home.stateVersion = 6;
 }
