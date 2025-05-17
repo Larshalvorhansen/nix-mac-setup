@@ -115,5 +115,5 @@
   security.accessibilityPrograms =
     [ "/Applications/Yabai.app" "${pkgs.yabai}/bin/yabai" ];
 
-  system.stateVersion = 23.11;
+  system.stateVersion = 6;
 }
