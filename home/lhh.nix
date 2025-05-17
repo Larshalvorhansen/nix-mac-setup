@@ -48,7 +48,7 @@
       todo = "nvim $HOME/Documents/dailyTodo/todo.md";
     };
 
-    initExtra = ''
+    initContent = ''
       # Load zinit from GitHub
       source ${
         pkgs.fetchFromGitHub {
