@@ -89,7 +89,6 @@
       PMPrintingExpandedStateForPrint = true;
       PMPrintingExpandedStateForPrint2 = true;
       _HIHideMenuBar = true;
-      "com.apple.keyboard.fnState" = true;
     };
   };
 
