@@ -14,7 +14,7 @@ alt + shift - k : yabai -m window --warp north
 alt - f : yabai -m window --toggle float
 
 # open alacritty
-alt + a : open -na Alacritty
+alt - a : open -na Alacritty
 
 # fullscreen toggle
 alt - return : yabai -m window --toggle zoom-fullscreen
