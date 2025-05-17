@@ -19,14 +19,15 @@
     nixfmt-classic
     nodePackages.prettier
     python3
+    ripgrep
     rustfmt
     shfmt
+    skhd
     stylua
     tmux
     tree
     typst
     yabai
-    skhd
     yt-dlp
   ];
 
