@@ -18,7 +18,7 @@ return {
 			sh = { "shfmt" },
 			go = { "gofmt" },
 			rust = { "rustfmt" },
-			nix = { "nixfmt" },
+			nix = { "nixfmt-classic" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 		},

@@ -16,7 +16,7 @@
     glow
     go
     mas
-    nixfmt
+    nixfmt-classic
     nodePackages.prettier
     python3
     rustfmt
