@@ -25,6 +25,8 @@
     tmux
     tree
     typst
+    yabai
+    skhd
     yt-dlp
   ];
 
