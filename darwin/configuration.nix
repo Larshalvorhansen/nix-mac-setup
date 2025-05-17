@@ -7,6 +7,7 @@
   users.users.lhh = {
     home = "/Users/lhh";
     description = "Main user account";
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
@@ -93,23 +94,26 @@
   };
 
   #Yabai stuff:
-  launchd.user.agents = {
-    yabai = {
-      serviceConfig = {
-        Program = "${pkgs.yabai}/bin/yabai";
-        RunAtLoad = true;
-        KeepAlive = true;
-      };
-    };
-
-    skhd = {
-      serviceConfig = {
-        Program = "${pkgs.skhd}/bin/skhd";
-        RunAtLoad = true;
-        KeepAlive = true;
-      };
+  services.yabai = {
+    enable = true;
+    enableScriptingAddition = true;
+    package = pkgs.yabai;
+    config = {
+      layout = "bsp";
+      window_placement = "second_child";
+      mouse_follows_focus = "on";
+      focus_follows_mouse = "autoraise";
     };
   };
 
-  system.stateVersion = 6;
+  services.skhd = {
+    enable = true;
+    package = pkgs.skhd;
+  };
+
+  # Required for scripting addition
+  security.accessibilityPrograms =
+    [ "/Applications/Yabai.app" "${pkgs.yabai}/bin/yabai" ];
+
+  system.stateVersion = 23.11;
 }
