@@ -21,3 +21,4 @@ alt + ctrl - r : yabai --restart-service
 
 # quit focused window
 alt + ctrl - q : yabai -m window --close
+cmd - return : open -na Alacritty
