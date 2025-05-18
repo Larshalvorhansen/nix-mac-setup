@@ -92,5 +92,6 @@
   xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
   xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 
+  xdg.configFile."sketchybar/sketchybarrc".source = ../.config/sketchybar/sketchybarrc;
   home.stateVersion = "24.05";
 }

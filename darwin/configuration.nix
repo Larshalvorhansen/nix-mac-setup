@@ -49,6 +49,7 @@
     "chatgpt"
     "messenger"
     "minecraft"
+    "propresenter"
     "raspberry-pi-imager"
     "signal"
     "vcv-rack"
