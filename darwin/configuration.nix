@@ -62,6 +62,24 @@
     mas install 1192318775  # GeoExpert – World Geography
   '';
 
+launchd.user.agents.desktopSetup = {
+  serviceConfig = {
+    Label = "org.nixos.desktop-setup";
+    ProgramArguments = [
+      "/usr/bin/osascript"
+      "-e"
+      ''
+      tell application "Finder"
+        set desktop picture to POSIX file "/Users/lhh/nix-mac-setup/wallpaper.png"
+        do shell script "defaults write com.apple.finder CreateDesktop -bool false"
+        do shell script "killall Finder"
+      end tell
+      ''
+    ];
+    RunAtLoad = true;
+  };
+};
+	
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   system.defaults = {
