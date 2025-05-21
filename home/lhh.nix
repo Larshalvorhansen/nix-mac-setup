@@ -15,6 +15,7 @@
     gh
     glow
     go
+    kjv
     mas
     nixfmt-classic
     nodePackages.prettier
