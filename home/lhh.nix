@@ -27,9 +27,11 @@
     stylua
     tmux
     tree
+		tealdeer
     typst
     yabai
     yt-dlp
+    wget
   ];
 
   programs.zsh = {

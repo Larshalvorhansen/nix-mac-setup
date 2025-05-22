@@ -8,10 +8,11 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Tabs
---vim.opt.tabstop = 2
---vim.opt.shiftwidth = 2
---vim.opt.expandtab = true
+-- Tabs & Indentation
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.tabstop = 22 -- Number of spaces a tab counts for
+vim.opt.softtabstop = 2 -- Number of spaces inserted when pressing Tab
 
 -- Fonts
 vim.opt.guifont = "JetBrainsMono:h16"

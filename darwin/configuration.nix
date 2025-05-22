@@ -20,6 +20,7 @@
     git
     glow
     google-chrome
+    lean4
     mas
     neofetch
     neovim
