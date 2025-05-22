@@ -25,13 +25,13 @@
     shfmt
     skhd
     stylua
+    tealdeer
     tmux
     tree
-		tealdeer
     typst
+    wget
     yabai
     yt-dlp
-    wget
   ];
 
   programs.zsh = {
@@ -95,6 +95,7 @@
   xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
   xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 
-  xdg.configFile."sketchybar/sketchybarrc".source = ../.config/sketchybar/sketchybarrc;
+  xdg.configFile."sketchybar/sketchybarrc".source =
+    ../.config/sketchybar/sketchybarrc;
   home.stateVersion = "24.05";
 }

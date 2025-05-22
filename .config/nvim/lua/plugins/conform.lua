@@ -1,46 +1,64 @@
 return {
 	"stevearc/conform.nvim",
-	opts = {
-		-- Format on save with fallback to LSP formatter
-		format_on_save = {
-			lsp_fallback = true,
-			timeout_ms = 1000, -- bumped up to 1s for slower formatters
-		},
-
-		-- Define formatters per filetype
-		formatters_by_ft = {
-			c = { "clang_format" },
-			cpp = { "clang_format" },
-			css = { "prettier" },
-			go = { "gofmt" },
-			html = { "prettier" },
-			javascript = { "prettier" },
-			json = { "prettier" },
-			lua = { "stylua" },
-			markdown = { "prettier" },
-			nix = { "nixfmt-classic" },
-			python = { "black" },
-			rust = { "rustfmt" },
-			sh = { "shfmt" },
-			typescript = { "prettier" },
-			typst = { "typstfmt" },
-			yaml = { "prettier" },
-		},
-
-		-- Optional: define custom formatter behavior
-		formatters = {
-			shfmt = {
-				prepend_args = { "-i", "2", "-ci" }, -- customize shell formatting
+	opts = function()
+		return {
+			-- Format on save for all filetypes
+			format_on_save = {
+				lsp_fallback = true,
+				timeout_ms = 1000,
 			},
-			prettier = {
-				condition = function(ctx)
-					-- Only use prettier if a config file is present
-					return vim.fs.find(
-						{ ".prettierrc", ".prettierrc.json", "prettier.config.js" },
-						{ upward = true, path = ctx.dirname }
-					)[1]
-				end,
+
+			-- Formatters by filetype
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "black" },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
+				go = { "gofmt" },
+				rust = { "rustfmt" },
+				sh = { "shfmt" },
+				nix = { "alejandra", "nixfmt" }, -- try alejandra, then nixfmt-classic
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
+				typst = { "typstfmt" },
 			},
-		},
-	},
+
+			-- Optional: extra formatter settings
+			formatters = {
+				alejandra = {
+					condition = function(ctx)
+						return vim.fn.executable("alejandra") == 1
+					end,
+				},
+				nixfmt_classic = {
+					condition = function(ctx)
+						return vim.fn.executable("nixfmt-classic") == 1
+					end,
+				},
+				prettier = {
+					condition = function(ctx)
+						return vim.fn.executable("prettier") == 1
+					end,
+				},
+				shfmt = {
+					prepend_args = { "-i", "2", "-ci" },
+				},
+			},
+		}
+	end,
+
+	-- Hook format-on-save to BufWritePre
+	config = function(_, opts)
+		require("conform").setup(opts)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			callback = function(args)
+				require("conform").format({ bufnr = args.buf })
+			end,
+		})
+	end,
 }

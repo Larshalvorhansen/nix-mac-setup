@@ -24,6 +24,7 @@
     mas
     neofetch
     neovim
+    nixfmt
     nodejs
     python3
     skim
