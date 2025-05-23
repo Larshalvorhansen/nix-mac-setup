@@ -3,7 +3,7 @@
     "My macOS config with nix-darwin, Home Manager, and Lean dev shell";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     darwin.url = "github:lnl7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager";
     flake-utils.url = "github:numtide/flake-utils";
@@ -23,7 +23,6 @@
             '';
           };
         });
-
     in flake-utils.lib.flattenTree {
       inherit (forAllSystems) devShells;
 
