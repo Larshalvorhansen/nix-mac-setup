@@ -23,10 +23,10 @@
             '';
           };
         });
-    in flake-utils.lib.flattenTree {
+    in {
       inherit (forAllSystems) devShells;
 
-      darwinConfigurations."Lars-sin-MacBook-Pro" = darwin.lib.darwinSystem {
+      darwinConfigurations."lhh" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin/configuration.nix

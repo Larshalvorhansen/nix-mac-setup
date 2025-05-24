@@ -17,6 +17,7 @@
     go
     kjv
     mas
+    netlify-cli
     nixfmt-classic
     nodePackages.prettier
     python3
