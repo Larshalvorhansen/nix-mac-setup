@@ -15,6 +15,7 @@
     gh
     glow
     go
+    karabiner-elements
     kjv
     mas
     netlify-cli

@@ -1,26 +1,38 @@
-# focus windows
+# Focus space 1 to 4
+cmd + alt - 1 : yabai -m space --focus 1
+cmd + alt - 2 : yabai -m space --focus 2
+cmd + alt - 3 : yabai -m space --focus 3
+cmd + alt - 4 : yabai -m space --focus 4
+
+# Move focused window to space 1 to 4
+cmd + alt + shift - 1 : yabai -m window --space 1
+cmd + alt + shift - 2 : yabai -m window --space 2
+cmd + alt + shift - 3 : yabai -m window --space 3
+cmd + alt + shift - 4 : yabai -m window --space 4
+
+# Focus windows (vim-style)
 alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 
-# move windows
+# Move windows (warp)
 alt + shift - h : yabai -m window --warp west
 alt + shift - l : yabai -m window --warp east
 alt + shift - j : yabai -m window --warp south
 alt + shift - k : yabai -m window --warp north
 
-# toggle float 
+# Toggle float mode
 alt - f : yabai -m window --toggle float
 
-# open alacritty
-alt - a : open -na Alacritty
+# Launch Alacritty (fast direct exec avoids Finder spawn)
+alt - t : /Applications/Alacritty.app/Contents/MacOS/Alacritty
 
-# fullscreen toggle
+# Fullscreen toggle
 alt - return : yabai -m window --toggle zoom-fullscreen
 
-# restart yabai (nice for testing config reloads)
-alt + ctrl - r : yabai --restart-service
+# Restart yabai (for config reloads)
+alt + cmd - r : yabai --restart-service
 
-# quit focused window
-alt + ctrl - q : yabai -m window --close
+# Close focused window
+alt + cmd - q : yabai -m window --close
