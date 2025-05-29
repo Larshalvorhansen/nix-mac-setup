@@ -5,6 +5,7 @@
   home.homeDirectory = "/Users/lhh";
 
   home.packages = with pkgs; [
+    aerospace
     alacritty
     black
     clang-tools_16
@@ -25,14 +26,14 @@
     ripgrep
     rustfmt
     shfmt
-    skhd
+    #skhd
     stylua
     tealdeer
     tmux
     tree
     typst
     wget
-    yabai
+    # yabai
     yt-dlp
   ];
 
@@ -94,8 +95,8 @@
   xdg.configFile."tmux/cheatsheet.txt".source = ../.config/tmux/cheatsheet.txt;
   xdg.configFile."aerospace/aerospace.toml".source =
     ../.config/aerospace/aerospace.toml;
-  xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
-  xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
+  # xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
+  #xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 
   xdg.configFile."sketchybar/sketchybarrc".source =
     ../.config/sketchybar/sketchybarrc;

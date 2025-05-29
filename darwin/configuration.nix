@@ -116,28 +116,41 @@
       _HIHideMenuBar = true;
     };
   };
+  /* #Yabai stuff:
+     services.yabai = {
+       enable = true;
+       enableScriptingAddition = true;
+       package = pkgs.yabai;
+       config = {
+         layout = "bsp";
+         window_placement = "second_child";
+         mouse_follows_focus = "on";
+         focus_follows_mouse = "autoraise";
+       };
+     };
 
-  #Yabai stuff:
-  services.yabai = {
-    enable = true;
-    enableScriptingAddition = true;
-    package = pkgs.yabai;
-    config = {
-      layout = "bsp";
-      window_placement = "second_child";
-      mouse_follows_focus = "on";
-      focus_follows_mouse = "autoraise";
-    };
-  };
-
-  services.skhd = {
-    enable = true;
-    package = pkgs.skhd;
-  };
-
+     services.skhd = {
+       enable = true;
+       package = pkgs.skhd;
+     };
+  */
   services.sketchybar.enable = true;
 
   # Required for scripting addition
-  security.accessibilityPrograms = [ ];
+  #  security.accessibilityPrograms = [ ];
+
+  launchd.daemons.aerospace = {
+    enable = true;
+    serviceConfig = {
+      Label = "org.nixos.aerospace";
+      ProgramArguments = [ "${pkgs.aerospace}/bin/aerospace" ];
+      RunAtLoad = true;
+      KeepAlive = true;
+      StandardOutPath = "/tmp/aerospace.out";
+      StandardErrorPath = "/tmp/aerospace.err";
+    };
+  };
+
+  security.accessibilityPrograms = [ "${pkgs.aerospace}/bin/aerospace" ];
 
 }
