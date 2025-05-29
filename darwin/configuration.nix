@@ -117,27 +117,72 @@
     };
   };
 
-  services.aerospace.enable = true; # Enable AeroSpace window manager at login
-  #services.aerospace.package = pkgs.aerospace; # (Optional) specify package; defaults to pkgs.aerospace [oai_citation:4‡nix-darwin.github.io](https://nix-darwin.github.io/nix-darwin/manual/#:~:text=%60%20%3Cnix)
+  programs.aerospace = {
+    enable = true;
+    settings = {
+      start-at-login = false;
+      enable-normalization-flatten-containers = true;
+      enable-normalization-opposite-orientation-for-nested-containers = true;
+      accordion-padding = 30;
+      default-root-container-layout = "tiles";
+      default-root-container-orientation = "auto";
+      on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
+      automatically-unhide-macos-hidden-apps = false;
 
-  /* #Yabai stuff:
-     services.yabai = {
-       enable = true;
-       enableScriptingAddition = true;
-       package = pkgs.yabai;
-       config = {
-         layout = "bsp";
-         window_placement = "second_child";
-         mouse_follows_focus = "on";
-         focus_follows_mouse = "autoraise";
-       };
-     };
+      after-login-command = [ ];
+      after-startup-command = [ ];
 
-     services.skhd = {
-       enable = true;
-       package = pkgs.skhd;
-     };
-  */
+      key-mapping.preset = "qwerty";
+
+      gaps = {
+        inner = {
+          horizontal = 0;
+          vertical = 0;
+        };
+        outer = {
+          left = 0;
+          right = 0;
+          top = 0;
+          bottom = 0;
+        };
+      };
+
+      mode.main.binding = {
+        "alt-enter" = "exec-and-forget open -na Alacritty";
+        "alt-comma" = "layout tiles horizontal vertical";
+        "alt-slash" = "layout accordion horizontal vertical";
+        "alt-h" = "focus left";
+        "alt-j" = "focus down";
+        "alt-k" = "focus up";
+        "alt-l" = "focus right";
+        "alt-shift-h" = "move left";
+        "alt-shift-j" = "move down";
+        "alt-shift-k" = "move up";
+        "alt-shift-l" = "move right";
+        "alt-1" = "workspace 1";
+        "alt-2" = "workspace 2";
+        "alt-3" = "workspace 3";
+        "alt-4" = "workspace 4";
+        "alt-shift-1" = "move-node-to-workspace 1";
+        "alt-shift-2" = "move-node-to-workspace 2";
+        "alt-shift-3" = "move-node-to-workspace 3";
+        "alt-shift-4" = "move-node-to-workspace 4";
+        "alt-tab" = "workspace-back-and-forth";
+        "alt-shift-semicolon" = "mode service";
+      };
+
+      mode.service.binding = {
+        esc = [ "reload-config" "mode main" ];
+        r = [ "flatten-workspace-tree" "mode main" ];
+        f = [ "layout floating tiling" "mode main" ];
+        backspace = [ "close-all-windows-but-current" "mode main" ];
+        "alt-shift-h" = [ "join-with left" "mode main" ];
+        "alt-shift-j" = [ "join-with down" "mode main" ];
+        "alt-shift-k" = [ "join-with up" "mode main" ];
+        "alt-shift-l" = [ "join-with right" "mode main" ];
+      };
+    };
+  };
   services.sketchybar.enable = true;
 
   # Required for scripting addition

@@ -80,6 +80,10 @@
   programs.tmux.enable = true;
   programs.git.enable = true;
   programs.neovim.enable = true;
+  programs.aerospace = {
+    enable = true;
+    settingsPath = "~/nix-mac-setup/.config/aerospace/aerospace.toml";
+  };
 
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
