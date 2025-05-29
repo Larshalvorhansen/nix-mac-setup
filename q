@@ -142,6 +142,7 @@
 
   # Required for scripting addition
   #  security.accessibilityPrograms = [ ];
+
   /* launchd.daemons.aerospace = {
        enable = true;
        serviceConfig = {
@@ -154,6 +155,7 @@
        };
      };
   */
+
   security.accessibilityPrograms = [ "${pkgs.aerospace}/bin/aerospace" ];
 
 }
