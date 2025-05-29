@@ -3,10 +3,10 @@
     "My macOS config with nix-darwin, Home Manager, and Lean dev shell";
 
   inputs = {
+    aerospace = { url = "github:aerospacewm/aerospace"; };
     darwin.url = "github:lnl7/nix-darwin";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
-    inputs.aerospace.url = "github:aerospacewm/aerospace";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
   };
 

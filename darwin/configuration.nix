@@ -116,6 +116,11 @@
       _HIHideMenuBar = true;
     };
   };
+
+  services.aerospace.enable = true; # Enable AeroSpace window manager at login
+  services.aerospace.package =
+    pkgs.aerospace; # (Optional) specify package; defaults to pkgs.aerospace [oai_citation:4‡nix-darwin.github.io](https://nix-darwin.github.io/nix-darwin/manual/#:~:text=%60%20%3Cnix)
+
   /* #Yabai stuff:
      services.yabai = {
        enable = true;
