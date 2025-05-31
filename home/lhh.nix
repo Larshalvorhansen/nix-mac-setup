@@ -18,6 +18,7 @@
     go
     karabiner-elements
     kjv
+    lynx
     mas
     netlify-cli
     nixfmt-classic
@@ -26,14 +27,13 @@
     ripgrep
     rustfmt
     shfmt
-    #skhd
     stylua
     tealdeer
     tmux
     tree
     typst
+    w3m
     wget
-    # yabai
     yt-dlp
   ];
 
@@ -80,10 +80,6 @@
   programs.tmux.enable = true;
   programs.git.enable = true;
   programs.neovim.enable = true;
-  programs.aerospace = {
-    enable = true;
-    settingsPath = "~/nix-mac-setup/.config/aerospace/aerospace.toml";
-  };
 
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
@@ -97,8 +93,8 @@
     ../.config/neofetch/config.conf;
   xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;
   xdg.configFile."tmux/cheatsheet.txt".source = ../.config/tmux/cheatsheet.txt;
-  xdg.configFile."aerospace/aerospace.toml".source =
-    ../.config/aerospace/aerospace.toml;
+  #xdg.configFile."aerospace/aerospace.toml".source =
+  #    ../.config/aerospace/aerospace.toml;
   # xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
   #xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
 

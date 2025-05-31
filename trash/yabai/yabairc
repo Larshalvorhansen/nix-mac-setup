@@ -1,4 +1,0 @@
-yabai -m config layout bsp
-yabai -m rule --add app="^Systeminnstillinger$" manage=off layer=above
-yabai -m rule --add app="^Spotify$" manage=off
-yabai -m rule --add app="^Propresenter$" manage=off
