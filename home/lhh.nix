@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     aerospace
     alacritty
+    aoc-cli
     black
     clang-tools_16
     cmatrix
