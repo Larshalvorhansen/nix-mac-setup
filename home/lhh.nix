@@ -72,7 +72,7 @@
       zinit light zsh-users/zsh-completions
       zinit light zsh-users/zsh-syntax-highlighting
 
-      # Theme (optional)
+      # Theme
       zinit light romkatv/powerlevel10k
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
@@ -84,6 +84,7 @@
 
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
+
   xdg.configFile."alacritty/alacritty.toml".source =
     ../.config/alacritty/alacritty.toml;
   xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
@@ -93,13 +94,11 @@
   xdg.configFile."neofetch/config.conf".source =
     ../.config/neofetch/config.conf;
   xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;
-  xdg.configFile."tmux/cheatsheet.txt".source = ../.config/tmux/cheatsheet.txt;
-  #xdg.configFile."aerospace/aerospace.toml".source =
-  #    ../.config/aerospace/aerospace.toml;
-  # xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
+  # xdg.configFile."aerospace/aerospace.toml".source = ../.config/aerospace/aerospace.toml;
+  #  xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
   #xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
-
   xdg.configFile."sketchybar/sketchybarrc".source =
     ../.config/sketchybar/sketchybarrc;
+
   home.stateVersion = "24.05";
 }
