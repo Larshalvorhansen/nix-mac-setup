@@ -119,5 +119,4 @@
 
   # Required for scripting addition
   security.accessibilityPrograms = [ ];
-
 }

@@ -5,7 +5,6 @@
   home.homeDirectory = "/Users/lhh";
 
   home.packages = with pkgs; [
-    aerospace
     alacritty
     aoc-cli
     black
@@ -81,24 +80,28 @@
   programs.tmux.enable = true;
   programs.git.enable = true;
   programs.neovim.enable = true;
+  #  programs.aerospace = {
+  # enable = true;
+  # settings = {
+  #   config = "${config.xdg.configHome}/aerospace/aerospace.toml";
+  # };
+  #};
 
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
 
+  #  xdg.configFile."aerospace.toml".source = ../.config/aerospace.toml;
   xdg.configFile."alacritty/alacritty.toml".source =
     ../.config/alacritty/alacritty.toml;
-  xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
-  xdg.configFile."gh/hosts.yml".source = ../.config/gh/hosts.yml;
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
     ../.config/configstore/update-notifier-netlify-cli.json;
+  xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
+  xdg.configFile."gh/hosts.yml".source = ../.config/gh/hosts.yml;
   xdg.configFile."neofetch/config.conf".source =
     ../.config/neofetch/config.conf;
-  xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;
-  # xdg.configFile."aerospace/aerospace.toml".source = ../.config/aerospace/aerospace.toml;
-  #  xdg.configFile."yabai/yabairc".source = ../.config/yabai/yabairc;
-  #xdg.configFile."skhd/skhdrc".source = ../.config/skhd/skhdrc;
   xdg.configFile."sketchybar/sketchybarrc".source =
     ../.config/sketchybar/sketchybarrc;
+  xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;
 
   home.stateVersion = "24.05";
 }
