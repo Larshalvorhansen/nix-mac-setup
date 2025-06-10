@@ -11,6 +11,17 @@ This repository provides an automated setup script for configuring a complete ma
 cd nix-mac-setup && sudo ./bootstrap.command
 ```
 
+- Install nixDarwin for using nix on macOS
+```bash
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+nix-channel --update
+```
+
+- Build and switch to the flake
+```bash
+sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake 
+```
+
 _Note: The script may also be available via curl - check the repository for the latest installation method._
 
 ## What Gets Installed
