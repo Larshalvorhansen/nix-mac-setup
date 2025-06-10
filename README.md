@@ -22,6 +22,11 @@ nix-channel --update
 sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ./nix-mac-setup
 ```
 
+and use this for casual updates:
+```bash
+sudo darwin-rebuild switch --flake .#lhhs-MacBook-Pro
+```
+
 _Note: The script may also be available via curl - check the repository for the latest installation method._
 
 ## What Gets Installed
