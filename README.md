@@ -6,8 +6,9 @@ This repository provides an automated setup script for configuring a complete ma
 
 - Install git and clone this repo if you havent already.
 
-- Run the following command in your terminal:
+- Run the following commands in your terminal:
 ```bash
+cd nix-mac-setup
 ./bootstrap.command
 ```
 
