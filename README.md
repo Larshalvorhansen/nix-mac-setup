@@ -4,8 +4,9 @@ This repository provides an automated setup script for configuring a complete ma
 
 ## Installation
 
-Run the following command in your terminal:
+- Install git and clone this repo if you havent already.
 
+- Run the following command in your terminal:
 ```bash
 ./bootstrap.command
 ```
