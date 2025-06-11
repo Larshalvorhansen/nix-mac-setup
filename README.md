@@ -102,6 +102,7 @@ darwin-rebuild switch --flake .
 
 ## Support
 
-Feel free to email me if you have any problems, questions, or suggestions! I'm happy to help improve this setup.
+Feel free to use this setup yourself. Please email me if you have any problems, questions or suggestions! 
+I would be happy to improve this setup.
 
 **Contact**: [larshalvorhansen1@gmail.com](mailto:larshalvorhansen1@gmail.com)
