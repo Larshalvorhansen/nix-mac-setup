@@ -84,20 +84,20 @@ darwin-rebuild switch --flake .
 ## Repository Structure
 
 ```
- .
-├──  bootstrap.command
-├──  darwin
-│   ├──  configuration.nix
-│   ├──  nix-modules
-│   │   └──  aerospace.nix
-│   └──  result
-├──  flake.lock
-├──  flake.nix
-├── 󱂵 home
-│   └──  lhh.nix
-├──  logo.png
-├── 󰂺 README.md
-└──  wallpaper.png
+📁 .
+├── 📄 bootstrap.command
+├── 📁 darwin
+│   ├── 📄 configuration.nix
+│   ├── 📁 nix-modules
+│   │   └── 📄 aerospace.nix
+│   └── 📄 result
+├── ❄️ flake.lock
+├── ❄️ flake.nix
+├── 🏠 home
+│   └── 📄 lhh.nix
+├── 🖼️ logo.png
+├── 📘 README.md
+└── 🖼️ wallpaper.png
 ```
 
 ## Support
