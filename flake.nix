@@ -28,7 +28,8 @@
     in {
       inherit (forAllSystems) devShells;
 
-      darwinConfigurations."lhh" = darwin.lib.darwinSystem {
+      # The hostname from the error message is used here
+      darwinConfigurations."lhhs-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           mac-app-util.darwinModules.default

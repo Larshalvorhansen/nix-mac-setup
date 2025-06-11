@@ -8,7 +8,23 @@ This repository provides an automated setup script for configuring a complete ma
 
 - Run the following command in your terminal:
 ```bash
-./bootstrap.command
+sudo ./nix-mac-setup/bootstrap.command
+```
+
+- Install nixDarwin for using nix on macOS
+```bash
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+nix-channel --update
+```
+
+- Build and switch to the flake
+```bash
+sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ./nix-mac-setup
+```
+
+and use this for casual updates:
+```bash
+sudo darwin-rebuild switch --flake .#lhhs-MacBook-Pro
 ```
 
 _Note: The script may also be available via curl - check the repository for the latest installation method._
