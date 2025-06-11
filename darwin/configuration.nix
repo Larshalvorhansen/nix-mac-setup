@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+
   system.stateVersion = 6;
 
   system.primaryUser = "lhh";
@@ -16,6 +17,7 @@
   environment.systemPackages = with pkgs; [
     aerospace
     cmatrix
+    bitwarden
     element-desktop
     eza
     firefox
