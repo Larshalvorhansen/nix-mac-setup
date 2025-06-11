@@ -2,12 +2,17 @@
 
 {
 
+  system.defaults = {
+    mouse.scaling = 3.0;
+    trackpad.TrackingSpeed = 3.0;
+  };
+
   system.stateVersion = 6;
   system.primaryUser = "lhh";
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ ./nix-modules/aerospace.nix ];
+  imports = [ ../modules/aerospace.nix ];
 
   users.users.lhh = {
     home = "/Users/lhh";
@@ -16,13 +21,16 @@
   };
 
   environment.systemPackages = with pkgs; [
+    #bitwarden-cli  #broken
+    #signal-desktop
+    #vcv-rack
     aerospace
-    cmatrix
     bitwarden
+    cmatrix
     element-desktop
     eza
-    firefox
     ffmpeg
+    firefox
     git
     glow
     google-chrome
@@ -35,12 +43,9 @@
     python3
     skim
     spotify
-    tree-sitter
     tmux
+    tree-sitter
     typst
-    #bitwarden-cli  #broken
-    #signal-desktop
-    #vcv-rack
   ];
 
   nix.package = pkgs.nix;

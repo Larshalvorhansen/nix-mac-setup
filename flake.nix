@@ -28,12 +28,14 @@
     in {
       inherit (forAllSystems) devShells;
 
-      # The hostname from the error message is used here
       darwinConfigurations."lhh" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+
         modules = [
           mac-app-util.darwinModules.default
+          aerospace.darwinModules.default
           ./darwin/configuration.nix
+          ./modules/aerospace.nix
           home-manager.darwinModules.home-manager
 
           {
@@ -47,6 +49,8 @@
             };
           }
         ];
+
+        specialArgs = { inherit aerospace; };
       };
     };
 }
