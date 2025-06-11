@@ -83,7 +83,7 @@ line 32:      darwinConfigurations."YOURE-NAME" = darwin.lib.darwinSystem {
 ```
 
 ```bash
-darwin-rebuild switch --flake .#YOUR-NAME
+sudo darwin-rebuild switch --flake .#YOUR-NAME
 ```
 
 ## Repository Structure
