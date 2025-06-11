@@ -1,3 +1,5 @@
+![nix-lambdasimLogo](logo.png "Lambda-nix")
+
 # macOS Development Environment Setup
 
 This repository provides an automated setup script for configuring a complete macOS development environment using Nix and nix-darwin.
