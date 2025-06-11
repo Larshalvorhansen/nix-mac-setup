@@ -84,26 +84,20 @@ darwin-rebuild switch --flake .
 ## Repository Structure
 
 ```
-.
-├── .config/                    # Application configurations
-│   ├── aerospace/              # Window management
-│   ├── alacritty/             # Terminal emulator
-│   ├── gh/                    # GitHub CLI
-│   ├── neofetch/              # System info display
-│   ├── nvim/                  # Neovim editor
-│   ├── sketchybar/            # macOS menu bar
-│   ├── skhd/                  # Hotkey daemon
-│   ├── tmux/                  # Terminal multiplexer
-│   └── yabai/                 # Tiling window manager
-├── darwin/
-│   └── configuration.nix      # nix-darwin system configuration
-├── home/
-│   └── lhh.nix               # Home Manager configuration
-├── bootstrap.command          # Initial setup script
-├── flake.nix                 # Main flake configuration
-├── flake.lock                # Flake dependency lockfile
-├── wallpaper.png             # Default wallpaper
-└── README.md                 # This file
+ .
+├──  bootstrap.command
+├──  darwin
+│   ├──  configuration.nix
+│   ├──  nix-modules
+│   │   └──  aerospace.nix
+│   └──  result
+├──  flake.lock
+├──  flake.nix
+├── 󱂵 home
+│   └──  lhh.nix
+├──  logo.png
+├── 󰂺 README.md
+└──  wallpaper.png
 ```
 
 ## Support
