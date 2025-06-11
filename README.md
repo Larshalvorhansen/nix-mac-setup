@@ -26,7 +26,7 @@ sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- sw
 
 and use this for casual updates:
 ```bash
-sudo darwin-rebuild switch --flake .#lhhs-MacBook-Pro
+sudo darwin-rebuild switch --flake .#lhh
 ```
 
 _Note: The script may also be available via curl - check the repository for the latest installation method._
@@ -75,10 +75,15 @@ After installation, your macOS system will be configured with a reproducible dev
 
 ## Customization
 
-To modify the installation, edit the darwin configuration files in this repository and run:
+It's recomended to modify the name of the configuration to something else. Im using my initials lhh but you can change it to whatwver you would like by doing the following:
+```nix
+file: flake.nix
+line 32:      darwinConfigurations."YOURE-NAME" = darwin.lib.darwinSystem {
+
+```
 
 ```bash
-darwin-rebuild switch --flake .
+darwin-rebuild switch --flake .#YOUR-NAME
 ```
 
 ## Repository Structure
