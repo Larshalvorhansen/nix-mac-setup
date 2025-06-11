@@ -7,6 +7,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  imports = [ ./nix-modules/aerospace.nix ];
+
   users.users.lhh = {
     home = "/Users/lhh";
     description = "Main user account";
