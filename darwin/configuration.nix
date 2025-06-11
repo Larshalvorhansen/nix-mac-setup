@@ -3,7 +3,6 @@
 {
 
   system.stateVersion = 6;
-
   system.primaryUser = "lhh";
 
   nixpkgs.config.allowUnfree = true;
