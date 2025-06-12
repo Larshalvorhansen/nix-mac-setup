@@ -2,17 +2,21 @@
 
 {
 
-  system.defaults = {
-    mouse.scaling = 3.0;
-    trackpad.TrackingSpeed = 3.0;
-  };
+  # Remove old invalid entry
+  # system.defaults.mouse = { scaling = 3.0; };
+  #  system.defaults.NSGlobalDomain = { "AppleTimeZone" = "Europe/Oslo"; };
+
+  # Use this correct one:
+  #  system.defaults = {
+  #   ".GlobalPreferences" = { "com.apple.mouse.scaling" = 3.0; };
+  # };
 
   system.stateVersion = 6;
   system.primaryUser = "lhh";
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ ../modules/aerospace.nix ];
+  #  imports = [ ../modules/aerospace.nix ];
 
   users.users.lhh = {
     home = "/Users/lhh";
@@ -24,7 +28,7 @@
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack
-    aerospace
+    #    aerospace
     bitwarden
     cmatrix
     element-desktop

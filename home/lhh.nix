@@ -11,6 +11,7 @@
     clang-tools_16
     cmatrix
     cowsay
+    discord
     eza
     ffmpeg
     gh
@@ -27,6 +28,7 @@
     ripgrep
     rustfmt
     shfmt
+    skimpdf
     stylua
     tealdeer
     tmux

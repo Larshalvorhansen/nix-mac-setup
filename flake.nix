@@ -3,11 +3,11 @@
     "My macOS config with nix-darwin, Home Manager, and Lean dev shell";
 
   inputs = {
-    darwin.url = "github:lnl7/nix-darwin";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     mac-app-util.url = "github:hraban/mac-app-util";
+    #aerospace = { url = "github:nikitabobko/aerospace"; };
   };
 
   outputs =
@@ -19,7 +19,6 @@
           devShells.default = pkgs.mkShell {
             buildInputs =
               [ pkgs.lean4 pkgs.lake pkgs.lean4Packages.lean-language-server ];
-
             shellHook = ''
               echo "Lean dev shell ready!"
             '';
@@ -33,9 +32,8 @@
 
         modules = [
           mac-app-util.darwinModules.default
-          aerospace.darwinModules.default
+          #          ./modules/aerospace.nix
           ./darwin/configuration.nix
-          ./modules/aerospace.nix
           home-manager.darwinModules.home-manager
 
           {
@@ -50,7 +48,8 @@
           }
         ];
 
-        specialArgs = { inherit aerospace; };
+        # No specialArgs needed anymore since aerospace isn't an input
+        specialArgs = { };
       };
     };
 }
