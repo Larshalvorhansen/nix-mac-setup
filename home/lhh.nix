@@ -37,6 +37,7 @@
     w3m
     wget
     yt-dlp
+    zotero
   ];
 
   programs.zsh = {

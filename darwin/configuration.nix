@@ -30,12 +30,14 @@
     #vcv-rack
     #    aerospace
     bitwarden
+    darwin.PowerManagement
     cmatrix
     element-desktop
     eza
     ffmpeg
     firefox
     git
+    git-lfs
     glow
     google-chrome
     lean4
