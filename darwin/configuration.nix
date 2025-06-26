@@ -25,13 +25,13 @@
   };
 
   environment.systemPackages = with pkgs; [
+    #aerospace
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack
-    #    aerospace
     bitwarden
-    darwin.PowerManagement
     cmatrix
+    darwin.PowerManagement
     element-desktop
     eza
     ffmpeg
@@ -46,7 +46,8 @@
     neovim
     nixfmt-classic
     nodejs
-    python3
+    pyright
+    (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
     skim
     spotify
     tmux

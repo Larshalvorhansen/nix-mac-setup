@@ -55,7 +55,7 @@
       conf = "nvim $HOME/nix-mac-setup/.config";
       nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
       n = "nvim";
-      todo = "nvim $HOME/Documents/dailyTodo/todo.md";
+      todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
     };
 
     initContent = ''

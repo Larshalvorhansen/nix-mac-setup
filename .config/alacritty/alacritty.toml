@@ -32,6 +32,3 @@ blue = "0xf38d70"
 magenta = "0xa8a9eb"
 cyan = "0x85dacc"
 white = "0xfff1f3"
-
-#[terminal]
-#shell = { program = "tmux", args = ["new-session"]}
