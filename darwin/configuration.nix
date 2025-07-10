@@ -64,6 +64,9 @@
 
   #Apps that arent supported yet on apple-darwin
   homebrew.enable = true;
+
+  homebrew.brews = [ "dark-mode" ];
+
   homebrew.casks = [
     "ableton-live-standard"
     "chatgpt"
