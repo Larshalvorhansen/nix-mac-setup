@@ -7,49 +7,42 @@
     darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager";
     mac-app-util.url = "github:hraban/mac-app-util";
-    #aerospace = { url = "github:nikitabobko/aerospace"; };
+    flake-utils.url = "github:numtide/flake-utils";
+    # aerospace = { url = "github:nikitabobko/aerospace"; };
   };
 
   outputs =
     { self, nixpkgs, darwin, home-manager, flake-utils, mac-app-util, ... }:
-    let
-      forAllSystems = flake-utils.lib.eachDefaultSystem (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          devShells.default = pkgs.mkShell {
-            buildInputs =
-              [ pkgs.lean4 pkgs.lake pkgs.lean4Packages.lean-language-server ];
-            shellHook = ''
-              echo "Lean dev shell ready!"
-            '';
-          };
-        });
-    in {
-      inherit (forAllSystems) devShells;
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShells.default = pkgs.mkShell {
+          buildInputs =
+            [ pkgs.lean4 pkgs.lake pkgs.lean4Packages.lean-language-server ];
+          shellHook = ''
+            echo "Lean dev shell ready!"
+          '';
+        };
+      }) // {
+        darwinConfigurations."lhh" = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            mac-app-util.darwinModules.default
+            ./darwin/configuration.nix
+            home-manager.darwinModules.home-manager
 
-      darwinConfigurations."lhh" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
 
-        modules = [
-          mac-app-util.darwinModules.default
-          #          ./modules/aerospace.nix
-          ./darwin/configuration.nix
-          home-manager.darwinModules.home-manager
-
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-
-            home-manager.users.lhh = {
-              imports =
-                [ ./home/lhh.nix mac-app-util.homeManagerModules.default ];
-            };
-          }
-        ];
-
-        # No specialArgs needed anymore since aerospace isn't an input
-        specialArgs = { };
+              home-manager.users.lhh = {
+                imports =
+                  [ ./home/lhh.nix mac-app-util.homeManagerModules.default ];
+              };
+            }
+          ];
+          specialArgs = { };
+        };
       };
-    };
 }

@@ -1,15 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-
-  # Remove old invalid entry
-  # system.defaults.mouse = { scaling = 3.0; };
-  #  system.defaults.NSGlobalDomain = { "AppleTimeZone" = "Europe/Oslo"; };
-
-  # Use this correct one:
-  #  system.defaults = {
-  #   ".GlobalPreferences" = { "com.apple.mouse.scaling" = 3.0; };
-  # };
+  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
 
   system.stateVersion = 6;
   system.primaryUser = "lhh";
@@ -103,6 +95,16 @@
     };
   };
 
+  services.yabai = {
+    enable = true;
+    enableScriptingAddition = true;
+    package = pkgs.yabai;
+  };
+
+  services.skhd = {
+    enable = true;
+    package = pkgs.skhd;
+  };
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   system.defaults = {
