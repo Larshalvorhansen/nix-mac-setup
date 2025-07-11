@@ -32,6 +32,7 @@
     stylua
     tealdeer
     tmux
+    texliveTeTeX
     tree
     typst
     w3m
