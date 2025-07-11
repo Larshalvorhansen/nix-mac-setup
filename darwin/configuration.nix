@@ -101,10 +101,6 @@
     package = pkgs.yabai;
   };
 
-  services.skhd = {
-    enable = true;
-    package = pkgs.skhd;
-  };
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   system.defaults = {
