@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
+  #   imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
 
   system.stateVersion = 6;
   system.primaryUser = "lhh";
@@ -95,11 +95,11 @@
     };
   };
 
-  services.yabai = {
-    enable = true;
-    enableScriptingAddition = true;
-    package = pkgs.yabai;
-  };
+  #  services.yabai = {
+  # enable = true;
+  # enableScriptingAddition = true;
+  # package = pkgs.yabai;
+  #};
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 

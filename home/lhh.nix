@@ -19,6 +19,7 @@
     go
     karabiner-elements
     kjv
+    iamb
     lynx
     mas
     netlify-cli
