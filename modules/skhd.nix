@@ -1,24 +1,17 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  services.skhd = {
-    enable = true;
-    package = pkgs.skhd;
-    skhdConfig = ''
-      # focus windows
-      alt - h : yabai -m window --focus west
-      alt - l : yabai -m window --focus east
-      alt - k : yabai -m window --focus north
-      alt - j : yabai -m window --focus south
+  config = {
+    services.skhd = {
+      enable = true;
 
-      # swap windows
-      shift + alt - h : yabai -m window --swap west
-      shift + alt - l : yabai -m window --swap east
-      shift + alt - k : yabai -m window --swap north
-      shift + alt - j : yabai -m window --swap south
-
-      # rotate
-      alt - r : yabai -m space --rotate 90
-    '';
+      skhdConfig = ''
+        # Focus space 1–4 with cmd + [1–4]
+        cmd - 1 : yabai -m space --focus 1
+        cmd - 2 : yabai -m space --focus 2
+        cmd - 3 : yabai -m space --focus 3
+        cmd - 4 : yabai -m space --focus 4
+      '';
+    };
   };
 }
