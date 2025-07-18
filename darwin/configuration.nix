@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
+  imports =
+    [ ../modules/yabai.nix ../modules/skhd.nix ../modules/alacritty.nix ];
 
   system.stateVersion = 6;
   system.primaryUser = "lhh";
@@ -63,7 +64,6 @@
     "ableton-live-standard"
     "chatgpt"
     "messenger"
-    "minecraft"
     "propresenter"
     "raspberry-pi-imager"
     "signal"

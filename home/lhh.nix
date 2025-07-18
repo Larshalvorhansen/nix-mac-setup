@@ -58,6 +58,11 @@
       nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
       n = "nvim";
       todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
+
+      won = "networksetup -setairportpower en0 on";
+      woff = "networksetup -setairportpower en0 off";
+
+      batt = "pmset -g batt";
     };
 
     initContent = ''
@@ -96,8 +101,8 @@
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
 
   #  xdg.configFile."aerospace.toml".source = ../.config/aerospace.toml;
-  xdg.configFile."alacritty/alacritty.toml".source =
-    ../.config/alacritty/alacritty.toml;
+  #  xdg.configFile."alacritty/alacritty.toml".source =
+  #  ../.config/alacritty/alacritty.toml;
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
     ../.config/configstore/update-notifier-netlify-cli.json;
   xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
