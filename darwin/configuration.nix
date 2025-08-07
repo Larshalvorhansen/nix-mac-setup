@@ -101,10 +101,10 @@
     package = pkgs.yabai;
   };
 
-  programs.alacritty = {
-    enable = true;
-    settings = { ... };
-  };
+  #  programs.alacritty = {
+  # enable = true;
+  # settings = { ... };
+  #};
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
