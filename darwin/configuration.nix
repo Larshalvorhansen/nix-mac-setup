@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ ../modules/yabai.nix ../modules/skhd.nix ../modules/alacritty.nix ];
+  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
 
   system.stateVersion = 6;
   system.primaryUser = "lhh";
@@ -46,10 +45,18 @@
     tmux
     tree-sitter
     typst
+    zoxide
   ];
 
   nix.package = pkgs.nix;
-  programs.zsh.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    interactiveShellInit = ''
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+    '';
+  };
 
   # other apps...
   # Optional: disable Homebrew completely
@@ -101,10 +108,7 @@
     package = pkgs.yabai;
   };
 
-  #  programs.alacritty = {
-  # enable = true;
-  # settings = { ... };
-  #};
+  #  programs.alacritty = { enable = true; };
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
