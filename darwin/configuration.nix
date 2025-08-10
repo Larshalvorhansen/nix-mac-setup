@@ -38,6 +38,7 @@
     neovim
     nixfmt-classic
     nodejs
+    obsidian
     pyright
     (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
     skim
