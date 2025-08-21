@@ -21,6 +21,8 @@
     kjv
     iamb
     lynx
+    librsvg
+    nodejs_20
     mas
     netlify-cli
     nixfmt-classic
