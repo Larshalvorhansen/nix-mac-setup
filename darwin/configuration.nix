@@ -21,6 +21,7 @@
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack
+    audacity
     bitwarden
     cmatrix
     darwin.PowerManagement
@@ -32,9 +33,13 @@
     git-lfs
     glow
     google-chrome
+    kitty
     lean4
     mas
     neofetch
+    librsvg
+    imagemagick
+    nodejs_20
     neovim
     nixfmt-classic
     nodejs
@@ -46,6 +51,7 @@
     tmux
     tree-sitter
     typst
+    when
     zoxide
   ];
 
@@ -77,7 +83,6 @@
     "signal"
     "vcv-rack"
   ];
-
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
     mas install 937984704   # Amphetamine
@@ -102,7 +107,7 @@
       RunAtLoad = true;
     };
   };
-
+  services.skhd.enable = true;
   services.yabai = {
     enable = true;
     enableScriptingAddition = true;
