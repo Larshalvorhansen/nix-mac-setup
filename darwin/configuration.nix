@@ -21,6 +21,7 @@
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack
+    (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
     audacity
     bitwarden
     cmatrix
@@ -33,24 +34,25 @@
     git-lfs
     glow
     google-chrome
+    imagemagick
     kitty
     lean4
+    librsvg
     mas
     neofetch
-    librsvg
-    imagemagick
-    nodejs_20
     neovim
     nixfmt-classic
     nodejs
+    nodejs_20
     obsidian
     pyright
-    (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
+    radicale
     skim
     spotify
     tmux
     tree-sitter
     typst
+    whatsapp-for-mac
     when
     zoxide
   ];
