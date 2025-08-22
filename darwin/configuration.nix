@@ -50,6 +50,7 @@
     skim
     spotify
     tmux
+    todoist
     tree-sitter
     typst
     whatsapp-for-mac
