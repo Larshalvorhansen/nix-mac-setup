@@ -21,6 +21,7 @@
     #bitwarden-cli  #broken
     #signal-desktop
     #vcv-rack
+    #whatsapp-for-mac
     (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
     audacity
     bitwarden
@@ -53,7 +54,6 @@
     todoist
     tree-sitter
     typst
-    whatsapp-for-mac
     when
     zoxide
   ];
