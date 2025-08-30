@@ -34,6 +34,7 @@
     git
     git-lfs
     glow
+    gnuradio
     google-chrome
     imagemagick
     kitty
