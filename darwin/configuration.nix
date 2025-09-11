@@ -50,11 +50,13 @@
     pyright
     radicale
     skim
+    stirling-pdf
     spotify
     tmux
     todoist
     tree-sitter
     typst
+    whatsapp-for-mac
     when
     zoxide
   ];
