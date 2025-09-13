@@ -52,8 +52,10 @@
     obsidian
     pyright
     radicale
+    rustc
     skim
     stirling-pdf
+    sox
     spotify
     tmux
     todoist
