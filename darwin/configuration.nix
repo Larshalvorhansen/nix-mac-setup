@@ -23,7 +23,7 @@
     #vcv-rack
     #whatsapp-for-mac
     (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
-    asciiquarium
+    asciiquarium-transparent
     audacity
     bitwarden
     cmatrix
