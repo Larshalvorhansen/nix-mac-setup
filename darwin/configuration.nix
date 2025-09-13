@@ -15,7 +15,7 @@
     description = "Main user account";
     shell = pkgs.zsh;
   };
-
+  nixpkgs.config.allowUnsupportedSystem = true;
   environment.systemPackages = with pkgs; [
     #aerospace
     #bitwarden-cli  #broken
@@ -23,6 +23,7 @@
     #vcv-rack
     #whatsapp-for-mac
     (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
+    asciiquarium
     audacity
     bitwarden
     cmatrix
@@ -31,6 +32,7 @@
     eza
     ffmpeg
     firefox
+    fd
     git
     git-lfs
     glow
@@ -39,6 +41,7 @@
     imagemagick
     kitty
     lean4
+    #    kiwix
     librsvg
     mas
     neofetch
@@ -56,7 +59,6 @@
     todoist
     tree-sitter
     typst
-    whatsapp-for-mac
     when
     zoxide
   ];
