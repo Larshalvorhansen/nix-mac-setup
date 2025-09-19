@@ -23,6 +23,7 @@
     #vcv-rack
     #whatsapp-for-mac
     (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
+    #    kiwix
     asciiquarium-transparent
     audacity
     bitwarden
@@ -30,9 +31,9 @@
     darwin.PowerManagement
     element-desktop
     eza
+    fd
     ffmpeg
     firefox
-    fd
     git
     git-lfs
     glow
@@ -41,7 +42,6 @@
     imagemagick
     kitty
     lean4
-    #    kiwix
     librsvg
     mas
     neofetch
@@ -50,13 +50,14 @@
     nodejs
     nodejs_20
     obsidian
+    pdfarranger
     pyright
     radicale
     rustc
     skim
-    stirling-pdf
     sox
     spotify
+    stirling-pdf
     tmux
     todoist
     tree-sitter
