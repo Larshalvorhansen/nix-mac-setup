@@ -54,6 +54,7 @@
     sox
     spotify
     stirling-pdf
+    texliveMedium
     tmux
     todoist
     tree-sitter
