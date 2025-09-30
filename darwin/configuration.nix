@@ -1,15 +1,9 @@
-{ config, pkgs, lib, ... }:
-
-{
+{ config, pkgs, lib, ... }: {
   imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
-
   system.stateVersion = 6;
   system.primaryUser = "lhh";
-
   nixpkgs.config.allowUnfree = true;
-
   #  imports = [ ../modules/aerospace.nix ];
-
   users.users.lhh = {
     home = "/Users/lhh";
     description = "Main user account";
@@ -22,11 +16,12 @@
     #signal-desktop
     #vcv-rack
     #whatsapp-for-mac
-    (python3.withPackages (ps: with ps; [ pandas matplotlib yfinance ]))
+    (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
     #    kiwix
     asciiquarium-transparent
     audacity
     bitwarden
+    cargo
     cmatrix
     darwin.PowerManagement
     element-desktop
@@ -44,6 +39,7 @@
     lean4
     librsvg
     mas
+    mermaid-cli
     neofetch
     neovim
     nixfmt-classic
@@ -65,9 +61,7 @@
     when
     zoxide
   ];
-
   nix.package = pkgs.nix;
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -75,16 +69,12 @@
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
     '';
   };
-
   # other apps...
   # Optional: disable Homebrew completely
   # homebrew.enable = false;
-
   #Apps that arent supported yet on apple-darwin
   homebrew.enable = true;
-
   homebrew.brews = [ "dark-mode" ];
-
   homebrew.casks = [
     "ableton-live-standard"
     "chatgpt"
@@ -100,7 +90,6 @@
     mas install 1289583905  # Pixelmator Pro
     mas install 1192318775  # GeoExpert – World Geography
   '';
-
   launchd.user.agents.desktopSetup = {
     serviceConfig = {
       Label = "org.nixos.desktop-setup";
@@ -124,11 +113,8 @@
     enableScriptingAddition = true;
     package = pkgs.yabai;
   };
-
   #  programs.alacritty = { enable = true; };
-
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
   system.defaults = {
     dock = {
       autohide = true;
@@ -140,9 +126,7 @@
       autohide-time-modifier = 0.0;
       persistent-apps = [ ];
     };
-
     finder.AppleShowAllFiles = true;
-
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       AppleKeyboardUIMode = 3;
@@ -158,7 +142,6 @@
       _HIHideMenuBar = true;
     };
   };
-
   # Required for scripting addition
   security.accessibilityPrograms = [ ];
 }
