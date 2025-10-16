@@ -61,6 +61,17 @@
     typst
     when
     zoxide
+
+    # Database tools for Neovim
+    postgresql
+    mysql80
+    sqlite
+
+    # Spreadsheet/data tools
+    visidata
+
+    # SQL language server (optional, for LSP-based SQL)
+    sqls
   ];
   nix.package = pkgs.nix;
   programs.zsh = {
