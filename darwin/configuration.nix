@@ -1,79 +1,94 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
+  # Core system configuration
   system.stateVersion = 6;
   system.primaryUser = "lhh";
-  nixpkgs.config.allowUnfree = true;
-  #  imports = [ ../modules/aerospace.nix ];
+
+  # Module imports
+  imports = [ ../modules/yabai.nix ../modules/skhd.nix ];
+
+  # User configuration
   users.users.lhh = {
     home = "/Users/lhh";
     description = "Main user account";
     shell = pkgs.zsh;
   };
-  nixpkgs.config.allowUnsupportedSystem = true;
+
+  # Nix and package configuration
+  nix.package = pkgs.nix;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+  };
+
+  # System packages organized by category
   environment.systemPackages = with pkgs; [
-    #aerospace
-    #bitwarden-cli  #broken
-    #signal-desktop
-    #vcv-rack
-    #whatsapp-for-mac
-    (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
-    #    kiwix
-    asciiquarium-transparent
-    audacity
-    bitwarden
+    # Development tools
     cargo
-    cmatrix
-    darwin.PowerManagement
-    element-desktop
-    eza
-    fd
-    ffmpeg
-    firefox
     git
     git-lfs
-    glow
-    gnuradio
-    google-chrome
-    imagemagick
-    kitty
     lean4
-    librsvg
-    mas
-    mermaid-cli
-    neofetch
     neovim
     nixfmt-classic
     nodejs
     nodejs_20
-    obsidian
-    pdfarranger
     pyright
-    radicale
     rustc
-    skim
-    sox
-    spotify
-    stirling-pdf
-    texliveMedium
-    tmux
-    todoist
     tree-sitter
-    typst
-    when
-    zoxide
 
-    # Database tools for Neovim
+    # Python with data science packages
+    (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
+
+    # Database tools
     postgresql
     mysql80
     sqlite
-
-    # Spreadsheet/data tools
+    sqls
     visidata
 
-    # SQL language server (optional, for LSP-based SQL)
-    sqls
+    # Terminal utilities
+    cmatrix
+    eza
+    fd
+    glow
+    neofetch
+    skim
+    tmux
+    when
+    zoxide
+
+    # Media tools
+    audacity
+    ffmpeg
+    imagemagick
+    sox
+
+    # Document tools
+    librsvg
+    mermaid-cli
+    pdfarranger
+    stirling-pdf
+    texliveMedium
+    typst
+
+    # Desktop applications
+    bitwarden
+    element-desktop
+    firefox
+    google-chrome
+    kitty
+    obsidian
+    spotify
+
+    # Specialized tools
+    asciiquarium-transparent
+    darwin.PowerManagement
+    gnuradio
+    mas
+    radicale
+    todoist
   ];
-  nix.package = pkgs.nix;
+
+  # Shell configuration
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -81,27 +96,44 @@
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
     '';
   };
-  # other apps...
-  # Optional: disable Homebrew completely
-  # homebrew.enable = false;
-  #Apps that arent supported yet on apple-darwin
-  homebrew.enable = true;
-  homebrew.brews = [ "dark-mode" ];
-  homebrew.casks = [
-    "ableton-live-standard"
-    "chatgpt"
-    "messenger"
-    "propresenter"
-    "raspberry-pi-imager"
-    "signal"
-    "vcv-rack"
-  ];
+
+  # Neovim with database plugins
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-dadbod
+      vim-dadbod-ui
+      vim-dadbod-completion
+    ];
+  };
+
+  # Fonts
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+
+  # Homebrew configuration
+  homebrew = {
+    enable = true;
+    brews = [ "dark-mode" ];
+    casks = [
+      "ableton-live-standard"
+      "chatgpt"
+      "messenger"
+      "propresenter"
+      "raspberry-pi-imager"
+      "signal"
+      "vcv-rack"
+    ];
+  };
+
+  # Mac App Store installations
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
     mas install 937984704   # Amphetamine
     mas install 1289583905  # Pixelmator Pro
     mas install 1192318775  # GeoExpert – World Geography
   '';
+
+  # Desktop appearance configuration
   launchd.user.agents.desktopSetup = {
     serviceConfig = {
       Label = "org.nixos.desktop-setup";
@@ -119,26 +151,30 @@
       RunAtLoad = true;
     };
   };
+
+  # Window management
   services.skhd.enable = true;
   services.yabai = {
     enable = true;
     enableScriptingAddition = true;
     package = pkgs.yabai;
   };
-  #  programs.alacritty = { enable = true; };
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+
+  # macOS system defaults
   system.defaults = {
     dock = {
       autohide = true;
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.0;
       orientation = "right";
       magnification = false;
       tilesize = 18;
       show-recents = false;
-      autohide-delay = 0.0;
-      autohide-time-modifier = 0.0;
       persistent-apps = [ ];
     };
+
     finder.AppleShowAllFiles = true;
+
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       AppleKeyboardUIMode = 3;
@@ -154,6 +190,7 @@
       _HIHideMenuBar = true;
     };
   };
-  # Required for scripting addition
+
+  # Accessibility for yabai scripting addition
   security.accessibilityPrograms = [ ];
 }
