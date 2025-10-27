@@ -35,6 +35,11 @@
     rustc
     tree-sitter
 
+    # Vim plugins for neovim
+    vimPlugins.vim-dadbod
+    vimPlugins.vim-dadbod-ui
+    vimPlugins.vim-dadbod-completion
+
     # Python with data science packages
     (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
 
@@ -55,6 +60,8 @@
     tmux
     when
     zoxide
+    newsboat
+    handbrake
 
     # Media tools
     audacity
@@ -95,16 +102,6 @@
     interactiveShellInit = ''
       eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
     '';
-  };
-
-  # Neovim with database plugins
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      vim-dadbod
-      vim-dadbod-ui
-      vim-dadbod-completion
-    ];
   };
 
   # Fonts
