@@ -2,28 +2,40 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
-
-      lspconfig.tsserver = nil -- optional: just in case
-      lspconfig.ts_ls.setup({
+      -- TypeScript/JavaScript
+      vim.lsp.config("ts_ls", {
         settings = {
           typescript = { format = { enable = false } },
           javascript = { format = { enable = false } },
         },
       })
+      vim.lsp.enable("ts_ls")
 
-      lspconfig.pyright.setup({})
-      lspconfig.rust_analyzer.setup({
+      -- Python
+      vim.lsp.config("pyright", {})
+      vim.lsp.enable("pyright")
+
+      -- Rust
+      vim.lsp.config("rust_analyzer", {
         settings = {
           ["rust-analyzer"] = {
             check = { command = "clippy" },
           },
         },
       })
+      vim.lsp.enable("rust_analyzer")
 
-      lspconfig.gopls.setup({})
-      lspconfig.clangd.setup({})
-      lspconfig.r_language_server.setup({})
+      -- Go
+      vim.lsp.config("gopls", {})
+      vim.lsp.enable("gopls")
+
+      -- C/C++
+      vim.lsp.config("clangd", {})
+      vim.lsp.enable("clangd")
+
+      -- R
+      vim.lsp.config("r_language_server", {})
+      vim.lsp.enable("r_language_server")
     end,
   },
 }
