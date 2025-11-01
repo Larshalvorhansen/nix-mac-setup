@@ -61,7 +61,7 @@
     when
     zoxide
     newsboat
-    handbrake
+    # handbrake
 
     # Media tools
     audacity
@@ -75,6 +75,7 @@
     pdfarranger
     stirling-pdf
     texliveMedium
+    texlive.combined.scheme-full
     typst
 
     # Desktop applications
