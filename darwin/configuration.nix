@@ -59,6 +59,7 @@
     skim
     tmux
     when
+    wikit
     zoxide
     newsboat
     # handbrake
