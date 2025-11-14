@@ -60,6 +60,7 @@
     tmux
     when
     wikit
+    wiki-tui
     zoxide
     newsboat
     # handbrake
