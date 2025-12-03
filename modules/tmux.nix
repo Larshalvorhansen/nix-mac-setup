@@ -1,0 +1,54 @@
+{ config, pkgs, ... }:
+
+{
+  programs.tmux = {
+    enable = true;
+    terminal = "screen-256color";
+    mouse = true;
+    keyMode = "vi";
+    escapeTime = 10;
+
+    plugins = with pkgs.tmuxPlugins; [ sensible ];
+
+    extraConfig = ''
+      # --- BASIC SETTINGS ---
+      set -g mouse on
+      set-option -g default-terminal "screen-256color"
+
+      # --- VIM-LIKE KEYBINDINGS FOR WINDOW MOVEMENT ---
+      # Enable pane movement like Vim (h,j,k,l)
+      bind -n C-Left select-pane -L
+      bind -n C-Down select-pane -D
+      bind -n C-Up select-pane -U
+      bind -n C-Right select-pane -R
+
+      # --- STATUS BAR ---
+      set -g status on
+      set -g status-interval 1
+      set -g status-justify centre
+      set -g status-bg black
+      set -g status-fg white
+      set-option -g status-position top
+
+
+      # Status content
+      set -g status-interval 10
+      set -g status-right '#(date +"%a %b %d, %H:%M:%S")'
+
+      # Split panes using $P-[gh]
+      bind h split-window -h -c "#{pane_current_path}"
+      bind g split-window -v -c "#{pane_current_path}"
+      bind-key x kill-pane 
+      unbind '"' # Unbind default vertical split
+      unbind %   # Unbind default horizontal split
+
+      # Resize pane left and right with [ and ]
+      bind -r [ resize-pane -L 5
+      bind -r ] resize-pane -R 5
+
+      # Reload config using $P-r
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message 'Reloaded tmux configuration'
+    '';
+  };
+}
