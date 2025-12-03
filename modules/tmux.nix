@@ -11,6 +11,10 @@
       set -g status-fg white
       set -g status-interval 10
       set -g status-right '#(date +"%a %b %d, %H:%M:%S")'
+      bind h split-window -h -c "#{pane_current_path}"
+      bind v split-window -v -c "#{pane_current_path}"
+      unbind '"'
+      unbind %
     '';
   };
 }
