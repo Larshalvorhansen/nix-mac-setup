@@ -3,9 +3,9 @@
 {
   programs.tmux = {
     enable = true;
-    mouse = true;
 
     extraConfig = ''
+      set -g mouse on
       set -g status-position top
       set -g status-bg colour52
       set -g status-fg white
