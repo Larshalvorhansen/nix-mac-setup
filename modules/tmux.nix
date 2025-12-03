@@ -3,6 +3,7 @@
 {
   programs.tmux = {
     enable = true;
+    mouse = true;
 
     extraConfig = ''
       set -g status-position top
