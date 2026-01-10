@@ -69,6 +69,7 @@
     audacity
     ffmpeg
     imagemagick
+    inkscape
     sox
 
     # Document tools
