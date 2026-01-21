@@ -89,6 +89,7 @@
     kitty
     obsidian
     spotify
+    vscode
 
     # Specialized tools
     asciiquarium-transparent
