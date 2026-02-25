@@ -70,6 +70,7 @@
     ffmpeg
     imagemagick
     inkscape
+    #labplot
     sox
 
     # Document tools
