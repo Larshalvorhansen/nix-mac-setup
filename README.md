@@ -9,22 +9,26 @@ This repository provides an automated setup script for configuring a complete ma
 - Install git and clone this repo if you havent already.
 
 - Run the following command in your terminal:
+
 ```bash
 sudo ./nix-mac-setup/bootstrap.command
 ```
 
 - Install nixDarwin for using nix on macOS
+
 ```bash
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
 nix-channel --update
 ```
 
 - Build and switch to the flake
+
 ```bash
 sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ./nix-mac-setup
 ```
 
 and use this for casual updates:
+
 ```bash
 sudo darwin-rebuild switch --flake .#lhh
 ```
@@ -76,6 +80,7 @@ After installation, your macOS system will be configured with a reproducible dev
 ## Customization
 
 It's recomended to modify the name of the configuration to something else. Im using my initials lhh but you can change it to whatwver you would like by doing the following:
+
 ```nix
 file: flake.nix
 line 32:      darwinConfigurations."YOURE-NAME" = darwin.lib.darwinSystem {
@@ -93,21 +98,25 @@ sudo darwin-rebuild switch --flake .#YOUR-NAME
 ├── 📄 bootstrap.command
 ├── 📁 darwin
 │   ├── 📄 configuration.nix
+│   ├── 📄 result
 │   ├── 📁 nix-modules
-│   │   └── 📄 aerospace.nix
-│   └── 📄 result
+│   │   ├── 📄 aerospace.nix
+│   │   ├── 📄 skhd.nix
+│   │   ├── 📄 tmux.nix
+│   │   └── 📄 yabai.nix
+│   └── 📄 earth.jpg
 ├── ❄️ flake.lock
 ├── ❄️ flake.nix
 ├── 🏠 home
 │   └── 📄 lhh.nix
 ├── 🖼️ logo.png
+├── 🖼️ wallpaper.png
 ├── 📘 README.md
-└── 🖼️ wallpaper.png
 ```
 
 ## Support
 
-Feel free to use this setup yourself. Please email me if you have any problems, questions or suggestions! 
+Feel free to use this setup yourself. Please email me if you have any problems, questions or suggestions!
 I would be happy to improve this setup.
 
 **Contact**: [larshalvorhansen1@gmail.com](mailto:larshalvorhansen1@gmail.com)
