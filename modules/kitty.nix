@@ -4,7 +4,8 @@
   programs.kitty = {
     enable = true;
 
-    theme = "Dracula";
+    # Correct way to set theme (new option name)
+    themeFile = "Dracula";
 
     font = {
       name = "JetBrainsMono Nerd Font Mono";
@@ -12,16 +13,16 @@
     };
 
     settings = {
-      # Background - Pure Black
+      # Pure black background
       background = "#000000";
       background_opacity = "1.0";
       background_blur = 0;
 
-      # Smaller margins/padding
-      window_padding_width = 2;
+      # Smaller margins
+      window_padding_width = 1;
       window_margin_width = 0;
 
-      # Cursor - No flying ninja
+      # Cursor (no trail)
       cursor_shape = "beam";
       cursor_beam_thickness = 1.8;
       cursor_blink_interval = 0.7;
@@ -33,12 +34,15 @@
       tab_powerline_style = "round";
       tab_bar_min_tabs = 2;
 
-      # Other settings
+      # General
       confirm_os_window_close = 0;
       scrollback_lines = 10000;
       enable_audio_bell = false;
       url_style = "curly";
       detect_urls = true;
+
+      # Allow Neovim to change font for .typ files
+      allow_remote_control = "socket-only";
     };
 
     extraConfig = ''
