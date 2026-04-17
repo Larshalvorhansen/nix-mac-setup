@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   # Module imports
-  imports = [ ../modules/tmux.nix ../modules/kitty.nix ];
+  imports = [ ../modules/ttmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"tmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"mux.nix ../modules/kitty.nix ];
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
@@ -57,7 +57,7 @@
       nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
       n = "nvim";
       t = "tmux";
-      ta = tmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"
+      ta = ''tmux attach -t "$(tmux ls -F '#{session_name}' | head -n 1)"'';
       todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
       won = "networksetup -setairportpower en0 on";
       woff = "networksetup -setairportpower en0 off";
