@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   # Module imports
-  imports = [ ../modules/tmux ../modules/kitty.nix ];
+  imports = [ ../modules/kitty.nix ];
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
