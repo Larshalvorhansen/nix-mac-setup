@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   # Module imports
-  imports = [ ../modules/ttmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"tmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"mux.nix ../modules/kitty.nix ];
+  imports = [ ../modules/tmux ../modules/kitty.nix ];
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
