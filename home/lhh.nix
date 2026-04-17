@@ -58,6 +58,7 @@
       n = "nvim";
       t = "tmux";
       ta = ''tmux attach -t "$(tmux ls -F '#{session_name}' | head -n 0)"'';
+      ts = "tmux choose-tree -s";
       todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
       won = "networksetup -setairportpower en0 on";
       woff = "networksetup -setairportpower en0 off";
