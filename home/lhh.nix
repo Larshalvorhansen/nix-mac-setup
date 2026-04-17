@@ -57,6 +57,7 @@
       nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
       n = "nvim";
       t = "tmux";
+      ta = tmux attach -t "$(tmux ls | head -n1 | cut -d: -f1)"
       todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
       won = "networksetup -setairportpower en0 on";
       woff = "networksetup -setairportpower en0 off";
