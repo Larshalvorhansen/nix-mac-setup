@@ -18,8 +18,8 @@
       background_blur = 0;
 
       # Smaller margins/padding
-      window_padding_width = 6;
-      window_margin_width = 4;
+      window_padding_width = 2;
+      window_margin_width = 0;
 
       # Cursor - No flying ninja
       cursor_shape = "beam";
