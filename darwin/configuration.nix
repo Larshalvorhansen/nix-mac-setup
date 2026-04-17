@@ -4,12 +4,7 @@
   system.primaryUser = "lhh";
 
   # Module imports
-  imports = [
-    ../modules/yabai.nix
-    ../modules/skhd.nix
-    ../modules/tmux.nix
-    ../modules/kitty.nix
-  ];
+  imports = [ ../modules/yabai.nix ../modules/skhd.nix ../modules/tmux.nix ];
 
   # User configuration
   users.users.lhh = {
