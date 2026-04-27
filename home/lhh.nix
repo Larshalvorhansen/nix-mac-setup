@@ -11,6 +11,7 @@
     clang-tools_16
     cmatrix
     cowsay
+    csvlens
     discord
     eza
     ffmpeg
@@ -38,6 +39,7 @@
     texliveTeTeX
     tree
     typst
+    visidata
     w3m
     wget
     yt-dlp
