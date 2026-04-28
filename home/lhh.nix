@@ -5,45 +5,46 @@
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
   home.packages = with pkgs; [
-    alacritty
-    aoc-cli
-    black
-    clang-tools_16
-    cmatrix
-    cowsay
-    csvlens
-    discord
-    eza
-    ffmpeg
-    gh
-    glow
-    go
-    karabiner-elements
-    kjv
-    iamb
-    lynx
-    librsvg
-    nodejs_20
-    mas
-    netlify-cli
-    nixfmt-classic
-    nodePackages.prettier
-    python3
-    ripgrep
-    rustfmt
-    shfmt
-    skimpdf
-    stylua
-    tealdeer
-    tmux
-    texliveTeTeX
-    tree
-    typst
-    visidata
-    w3m
-    wget
-    yt-dlp
-    zotero
+    alacritty # GPU-accelerated terminal emulator
+    aoc-cli # Advent of Code helper tool
+    black # Python code formatter
+    clang-tools_16 # C/C++ development utilities
+    cmatrix # "Matrix" style terminal screensaver
+    cowsay # Generates ASCII art of a talking cow
+    csvlens # Command-line CSV viewer
+    discord # Chat and communication platform
+    eza # Modern replacement for 'ls'
+    ffmpeg # Audio/video processing tool
+    gh # GitHub CLI tool
+    glow # Terminal markdown renderer
+    go # Go programming language
+    jless # Interactive JSON viewer
+    karabiner-elements # macOS keyboard customizer
+    kjv # CLI King James Bible
+    iamb # Matrix chat client (Vim-like)
+    lynx # Text-based web browser
+    librsvg # SVG rendering library
+    nodejs_20 # Node.js runtime (v20)
+    mas # Mac App Store CLI
+    netlify-cli # Netlify deployment tools
+    nixfmt-classic # Nix code formatter
+    nodePackages.prettier # Multi-language code formatter
+    python3 # Python programming language
+    ripgrep # Fast text search tool
+    rustfmt # Rust code formatter
+    shfmt # Shell script formatter
+    skimpdf # PDF reader and annotator
+    stylua # Lua code formatter
+    tealdeer # Fast 'tldr' (simple man pages)
+    tmux # Terminal multiplexer
+    texliveTeTeX # TeX typesetting distribution
+    tree # Directory hierarchy visualizer
+    typst # Modern typesetting system
+    visidata # Terminal spreadsheet/data explorer
+    w3m # Text-based web browser
+    wget # Command-line file downloader
+    yt-dlp # Video/audio downloader
+    zotero # Research/citation manager
   ];
   programs.zsh = {
     enable = true;
