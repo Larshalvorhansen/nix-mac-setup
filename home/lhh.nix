@@ -14,7 +14,9 @@
     csvlens # Command-line CSV viewer
     discord # Chat and communication platform
     eza # Modern replacement for 'ls'
+    fd # for fast file finding?
     ffmpeg # Audio/video processing tool
+    fzf # Fuzzyfind?
     gh # GitHub CLI tool
     glow # Terminal markdown renderer
     go # Go programming language
@@ -40,6 +42,7 @@
     texliveTeTeX # TeX typesetting distribution
     tree # Directory hierarchy visualizer
     typst # Modern typesetting system
+    typstyle # Typst formatter
     visidata # Terminal spreadsheet/data explorer
     w3m # Text-based web browser
     wget # Command-line file downloader
@@ -88,7 +91,13 @@
   };
   # REMOVED: programs.tmux.enable = true;  (now handled by module)
   programs.git.enable = true;
-  programs.neovim.enable = true;
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins;
+      [
+        harpoon2 # Add this line
+      ];
+  };
   home.file.".config/nvim".source =
     config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =

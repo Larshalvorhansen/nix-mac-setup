@@ -1,36 +1,48 @@
 return {
-	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons", -- enables filetype icons
-	},
-	config = function()
-		local telescope = require("telescope")
-		telescope.setup({
-			defaults = {
-				initial_mode = "normal",
-				file_ignore_patterns = { "node_modules", "%.lock", ".git/" },
-				layout_config = {
-					prompt_position = "top",
-				},
-				sorting_strategy = "ascending",
-				winblend = 0,
-			},
-			pickers = {
-				find_files = {
-					theme = "dropdown",
-				},
-				buffers = {
-					sort_mru = true,
-				},
-			},
-		})
+  "nvim-telescope/telescope.nvim",
+  branch = "0.1.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
-		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-	end,
+    telescope.setup({
+      defaults = {
+        -- Change 'normal' to 'insert' so you can type immediately
+        initial_mode = "insert",
+        sorting_strategy = "ascending",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
+          },
+        },
+        mappings = {
+          i = {
+            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+            ["<C-j>"] = actions.move_selection_next, -- move to next result
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+          },
+        },
+      },
+    })
+
+    telescope.load_extension("fzf")
+
+    -- Keymaps: The "Prime" style uses <leader>p for project/find
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find Files" })
+    vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Git Files" })
+    vim.keymap.set(
+      "n",
+      "<leader>ps",
+      function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end,
+      { desc = "Grep String" }
+    )
+    vim.keymap.set("n", "<leader>vh", builtin.help_tags, { desc = "Help Tags" })
+  end,
 }
