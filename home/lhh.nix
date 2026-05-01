@@ -4,7 +4,6 @@
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
-  home.packages = with pkgs; [
     alacritty # GPU-accelerated terminal emulator
     aoc-cli # Advent of Code helper tool
     black # Python code formatter
@@ -20,27 +19,32 @@
     gh # GitHub CLI tool
     glow # Terminal markdown renderer
     go # Go programming language
+    gopls 
+    harper # The Spellchecker (binary is harper-ls)
+    iamb # Matrix chat client (Vim-like)
     jless # Interactive JSON viewer
     karabiner-elements # macOS keyboard customizer
     kjv # CLI King James Bible
-    iamb # Matrix chat client (Vim-like)
-    lynx # Text-based web browser
     librsvg # SVG rendering library
-    nodejs_20 # Node.js runtime (v20)
+    lynx # Text-based web browser
     mas # Mac App Store CLI
     netlify-cli # Netlify deployment tools
     nixfmt-classic # Nix code formatter
     nodePackages.prettier # Multi-language code formatter
+    nodejs_20 # Node.js runtime (v20)
     python3 # Python programming language
     ripgrep # Fast text search tool
+    rust-analyzer
     rustfmt # Rust code formatter
     shfmt # Shell script formatter
     skimpdf # PDF reader and annotator
     stylua # Lua code formatter
     tealdeer # Fast 'tldr' (simple man pages)
-    tmux # Terminal multiplexer
     texliveTeTeX # TeX typesetting distribution
+    tinymist # The Typst LSP
+    tmux # Terminal multiplexer
     tree # Directory hierarchy visualizer
+    typescript-language-server
     typst # Modern typesetting system
     typstyle # Typst formatter
     visidata # Terminal spreadsheet/data explorer
@@ -49,6 +53,7 @@
     yt-dlp # Video/audio downloader
     zotero # Research/citation manager
   ];
+  home.packages = with pkgs; [
   programs.zsh = {
     enable = true;
     enableCompletion = true;
