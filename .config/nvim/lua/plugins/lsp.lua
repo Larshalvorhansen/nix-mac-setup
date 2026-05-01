@@ -36,6 +36,32 @@ return {
       -- R
       vim.lsp.config("r_language_server", {})
       vim.lsp.enable("r_language_server")
+
+      -- Tinymist (The Best Typst LSP)
+      -- It handles completions, hover, and live preview support
+      vim.lsp.config("tinymist", {
+        settings = {
+          exportPdf = "onType", -- Automatically compile to PDF on save/type
+          outputPath = "$root/$name.pdf",
+        },
+      })
+      vim.lsp.enable("tinymist")
+
+      -- Harper (The Spellchecker)
+      -- This will provide grammar and spelling underlines
+      vim.lsp.config("harper_ls", {
+        settings = {
+          ["harper-ls"] = {
+            userDictPath = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),
+            fileDictPath = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),
+            linters = {
+              spell_check = true,
+              spelled_numbers = false,
+            },
+          },
+        },
+      })
+      vim.lsp.enable("harper_ls")
     end,
   },
 }
