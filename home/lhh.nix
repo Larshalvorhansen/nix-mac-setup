@@ -4,9 +4,9 @@
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
+  home.packages = with pkgs; [
     alacritty # GPU-accelerated terminal emulator
-    aoc-cli # Advent of Code helper tool
-    black # Python code formatter
+    black # python formatter
     clang-tools_16 # C/C++ development utilities
     cmatrix # "Matrix" style terminal screensaver
     cowsay # Generates ASCII art of a talking cow
@@ -19,7 +19,7 @@
     gh # GitHub CLI tool
     glow # Terminal markdown renderer
     go # Go programming language
-    gopls 
+    gopls
     harper # The Spellchecker (binary is harper-ls)
     iamb # Matrix chat client (Vim-like)
     jless # Interactive JSON viewer
@@ -53,7 +53,6 @@
     yt-dlp # Video/audio downloader
     zotero # Research/citation manager
   ];
-  home.packages = with pkgs; [
   programs.zsh = {
     enable = true;
     enableCompletion = true;
