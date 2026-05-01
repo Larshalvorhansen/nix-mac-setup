@@ -37,4 +37,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Standard LSP keymaps for handling Harper (and other LSPs)
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.code_action, { desc = "Spelling Suggestions" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Typo/Error" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Typo/Error" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show Error Detail" })
+
 require("lazy").setup("plugins")
