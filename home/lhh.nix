@@ -110,8 +110,6 @@
   xdg.configFile."gh/hosts.yml".source = ../.config/gh/hosts.yml;
   xdg.configFile."neofetch/config.conf".source =
     ../.config/neofetch/config.conf;
-  xdg.configFile."sketchybar/sketchybarrc".source =
-    ../.config/sketchybar/sketchybarrc;
   # REMOVED: xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;  (now managed by module)
   home.stateVersion = "24.05";
 }
