@@ -39,8 +39,8 @@
     shfmt # Shell script formatter
     skimpdf # PDF reader and annotator
     stylua # Lua code formatter
-    tealdeer # Fast 'tldr' (simple man pages)
     texliveTeTeX # TeX typesetting distribution
+    tldr # TLDR short explenations of varoius terminal tools
     tinymist # The Typst LSP
     tmux # Terminal multiplexer
     tree # Directory hierarchy visualizer
