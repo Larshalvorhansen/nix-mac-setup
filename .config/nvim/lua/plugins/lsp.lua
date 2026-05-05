@@ -51,8 +51,8 @@ return {
       vim.lsp.enable("gopls")
 
       -- C/C++
-      vim.lsp.config("clangd", {})
-      vim.lsp.enable("clangd")
+      --     vim.lsp.config("clangd", {})
+      --   vim.lsp.enable("clangd")
 
       -- R
       vim.lsp.config("r_language_server", {})
