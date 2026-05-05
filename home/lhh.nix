@@ -48,6 +48,7 @@
     typst # Modern typesetting system
     typstyle # Typst formatter
     visidata # Terminal spreadsheet/data explorer
+    websocat # websocket connection
     w3m # Text-based web browser
     wget # Command-line file downloader
     yt-dlp # Video/audio downloader
