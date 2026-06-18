@@ -7,33 +7,29 @@ This repository provides an automated setup script for configuring a complete ma
 ## Installation
 
 - Install git and clone this repo if you havent already.
+- Devtools(including git) can easily be automaticaly installed on macos by writing "git" in the terminal and clicking yes on "do you want to install devtools"
 
-- Run the following command in your terminal:
-
-```bash
-sudo ./nix-mac-setup/bootstrap.command
-```
+- Run the following commands in your terminal:
 
 - Install nixDarwin for using nix on macOS
 
 ```bash
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
-nix-channel --update
+sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch
+
 ```
+(or whatever is the newest stable version at the time)
 
 - Build and switch to the flake
 
 ```bash
-sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ./nix-mac-setup
+sudo nix run github:LnL7/nix-darwin -- switch --flake .#lhh --fallback
 ```
 
-and use this for casual updates:
+for casual updates:
 
 ```bash
 sudo darwin-rebuild switch --flake .#lhh
 ```
-
-_Note: The script may also be available via curl - check the repository for the latest installation method._
 
 ## What Gets Installed
 
@@ -63,6 +59,7 @@ Various software packages will be installed as defined in the darwin configurati
 - **Tmux** - Terminal multiplexer
 - **Yabai** - Tiling window manager
 - **GitHub CLI** - Command-line interface for GitHub
+and more... (see lhh.nix and configutation.nix for an up to date list of all things being installed)
 
 ### macOS System Settings
 
@@ -83,6 +80,7 @@ It's recomended to modify the name of the configuration to something else. Im us
 
 ```nix
 file: flake.nix
+
 line 32:      darwinConfigurations."YOURE-NAME" = darwin.lib.darwinSystem {
 
 ```
@@ -117,6 +115,7 @@ sudo darwin-rebuild switch --flake .#YOUR-NAME
 ## Support
 
 Feel free to use this setup yourself. Please email me if you have any problems, questions or suggestions!
+
 I would be happy to improve this setup.
 
 **Contact**: [larshalvorhansen1@gmail.com](mailto:larshalvorhansen1@gmail.com)

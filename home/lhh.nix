@@ -19,7 +19,7 @@
     gh # GitHub CLI tool
     glow # Terminal markdown renderer
     go # Go programming language
-    gopls
+    gopls #go language server
     harper # The Spellchecker (binary is harper-ls)
     iamb # Matrix chat client (Vim-like)
     jless # Interactive JSON viewer
@@ -34,12 +34,12 @@
     nodejs_20 # Node.js runtime (v20)
     python3 # Python programming language
     ripgrep # Fast text search tool
-    rust-analyzer
+    rust-analyzer #Language server for rustlang
     rustfmt # Rust code formatter
     shfmt # Shell script formatter
     skimpdf # PDF reader and annotator
     stylua # Lua code formatter
-    texliveTeTeX # TeX typesetting distribution
+    #texliveTeTeX # TeX typesetting distribution
     tldr # TLDR short explenations of varoius terminal tools
     tinymist # The Typst LSP
     tmux # Terminal multiplexer

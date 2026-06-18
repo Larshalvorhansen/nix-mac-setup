@@ -81,8 +81,8 @@
     mermaid-cli
     pdfarranger
     stirling-pdf
-    texliveMedium
-    texlive.combined.scheme-full
+    #texliveMedium
+    #texlive.combined.scheme-full
     typst
 
     # Desktop applications
