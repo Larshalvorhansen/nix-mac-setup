@@ -52,7 +52,7 @@
     eza
     fd
     glow
-    neofetch
+    fastfetch
     skim
     tmux
     when
