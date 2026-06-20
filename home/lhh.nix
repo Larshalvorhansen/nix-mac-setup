@@ -51,8 +51,10 @@
     plugins = with pkgs.vimPlugins; [ harpoon2 ];
   };
 
-  # Correct way (this fixes the "outside $HOME" error)
+  # Single clean Neovim config
+  xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
 
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
     ../.config/configstore/update-notifier-netlify-cli.json;
@@ -62,20 +64,3 @@
 
   home.stateVersion = "26.05";
 }
-
-  # Neovim config (correct method)
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
-
-  # Neovim config (correct & clean)
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
-
-  # Neovim config (single clean definition)
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
-
-  # Neovim config (single clean definition)
-  xdg.configFile."nvim".source =
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
