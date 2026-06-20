@@ -127,12 +127,6 @@
     };
   };
 
-  services.skhd.enable = true;
-  services.yabai = {
-    enable = true;
-    enableScriptingAddition = true;
-    package = pkgs.yabai;
-  };
 
   system.defaults = {
     dock = {
