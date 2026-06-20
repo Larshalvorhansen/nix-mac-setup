@@ -52,7 +52,6 @@
   };
 
   # Correct way (this fixes the "outside $HOME" error)
-  xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
 
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
@@ -65,6 +64,10 @@
 }
 
   # Neovim config (correct method)
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
+
+  # Neovim config (correct & clean)
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
