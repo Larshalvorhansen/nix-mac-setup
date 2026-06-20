@@ -52,7 +52,6 @@
   };
 
   # Single clean Neovim config
-  xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
 
