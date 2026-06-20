@@ -97,12 +97,14 @@
 
   programs.neovim = {
     enable = true;
+    withRuby = false;
+    withPython3 = false;
     plugins = with pkgs.vimPlugins; [
       harpoon2
     ];
   };
 
-  # Fixed Neovim config - using xdg.configFile (this was the problem)
+  # Neovim config (fixed)
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
@@ -115,5 +117,5 @@
   xdg.configFile."neofetch/config.conf".source =
     ../.config/neofetch/config.conf;
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 }

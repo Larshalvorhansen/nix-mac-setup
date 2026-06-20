@@ -52,8 +52,7 @@
     eza
     fd
     glow
-    # neofetch
-# neowofetch 
+    neofetch
     skim
     tmux
     when
@@ -77,7 +76,6 @@
     typst
 
     # Desktop apps
-    bitwarden
     element-desktop
     firefox
     google-chrome
@@ -88,7 +86,6 @@
 
     # Other
     asciiquarium-transparent
-    darwin.PowerManagement
     gnuradio
     mas
     radicale
@@ -110,6 +107,7 @@
     brews = [ "dark-mode" ];
     casks = [
       "ableton-live-standard"
+      "bitwarden"
       "chatgpt"
       "messenger"
       "propresenter"
