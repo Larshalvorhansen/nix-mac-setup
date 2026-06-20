@@ -101,20 +101,6 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  homebrew = {
-    enable = true;
-    brews = [ "dark-mode" ];
-    casks = [
-      "ableton-live-standard"
-      "bitwarden"
-      "chatgpt"
-      "messenger"
-      "propresenter"
-      "raspberry-pi-imager"
-      "signal"
-      "vcv-rack"
-    ];
-  };
 
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
