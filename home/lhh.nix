@@ -51,9 +51,7 @@
     plugins = with pkgs.vimPlugins; [ harpoon2 ];
   };
 
-  # Single clean Neovim config
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
+  # nvim config temporarily removed to break the loop
 
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
     ../.config/configstore/update-notifier-netlify-cli.json;
