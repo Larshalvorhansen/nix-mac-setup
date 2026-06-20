@@ -11,7 +11,7 @@
   };
 
   nix.package = pkgs.nix;
-
+  nix.enable = false;
   nixpkgs.config = {
     allowUnfree = true;
     allowUnsupportedSystem = true;
