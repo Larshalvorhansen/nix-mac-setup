@@ -1,62 +1,61 @@
 { config, pkgs, ... }: {
-  # Module imports
   imports = [ ../modules/kitty.nix ];
 
   home.username = "lhh";
   home.homeDirectory = "/Users/lhh";
+
   home.packages = with pkgs; [
-    alacritty # GPU-accelerated terminal emulator
-    black # python formatter
-    clang-tools_16 # C/C++ development utilities
-    cmatrix # "Matrix" style terminal screensaver
-    cowsay # Generates ASCII art of a talking cow
-    csvlens # Command-line CSV viewer
-    discord # Chat and communication platform
-    eza # Modern replacement for 'ls'
-    fd # for fast file finding?
-    ffmpeg # Audio/video processing tool
-    fzf # Fuzzyfind?
-    gh # GitHub CLI tool
-    glow # Terminal markdown renderer
-    go # Go programming language
-    gopls #go language server
-    harper # The Spellchecker (binary is harper-ls)
-    iamb # Matrix chat client (Vim-like)
-    jless # Interactive JSON viewer
-    karabiner-elements # macOS keyboard customizer
-    kjv # CLI King James Bible
-    librsvg # SVG rendering library
-    lynx # Text-based web browser
-    mas # Mac App Store CLI
-    netlify-cli # Netlify deployment tools
-    nixfmt-classic # Nix code formatter
-    nodePackages.prettier # Multi-language code formatter
-    nodejs_20 # Node.js runtime (v20)
-    python3 # Python programming language
-    ripgrep # Fast text search tool
-    rust-analyzer #Language server for rustlang
-    rustfmt # Rust code formatter
-    shfmt # Shell script formatter
-    skimpdf # PDF reader and annotator
-    stylua # Lua code formatter
-    #texliveTeTeX # TeX typesetting distribution
-    tldr # TLDR short explenations of varoius terminal tools
-    tinymist # The Typst LSP
-    tmux # Terminal multiplexer
-    tree # Directory hierarchy visualizer
+    alacritty
+    black
+    cmatrix
+    cowsay
+    csvlens
+    discord
+    eza
+    fd
+    ffmpeg
+    fzf
+    gh
+    glow
+    go
+    gopls
+    harper
+    iamb
+    jless
+    karabiner-elements
+    kjv
+    librsvg
+    lynx
+    mas
+    netlify-cli
+    nixfmt
+    prettier
+    python3
+    ripgrep
+    rust-analyzer
+    rustfmt
+    shfmt
+    skimpdf
+    stylua
+    tldr
+    tinymist
+    tmux
+    tree
     typescript-language-server
-    typst # Modern typesetting system
-    typstyle # Typst formatter
-    visidata # Terminal spreadsheet/data explorer
-    websocat # websocket connection
-    w3m # Text-based web browser
-    wget # Command-line file downloader
-    yt-dlp # Video/audio downloader
-    zotero # Research/citation manager
+    typst
+    typstyle
+    visidata
+    websocat
+    w3m
+    wget
+    yt-dlp
+    zotero
   ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+
     shellAliases = {
       g = "git";
       k = "kubectl";
@@ -75,8 +74,8 @@
       woff = "networksetup -setairportpower en0 off";
       batt = "pmset -g batt";
     };
+
     initContent = ''
-      # Load zinit from GitHub
       source ${
         pkgs.fetchFromGitHub {
           owner = "zdharma-continuum";
@@ -85,32 +84,36 @@
           sha256 = "sha256-yGUcwrwLXpsB3nzGITbi/0ycZej09GvozDoscEf7qp4=";
         }
       }/zinit.zsh
-      # Plugins
+
       zinit light zsh-users/zsh-autosuggestions
       zinit light zsh-users/zsh-completions
       zinit light zsh-users/zsh-syntax-highlighting
-      # Theme
       zinit light romkatv/powerlevel10k
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
   };
-  # REMOVED: programs.tmux.enable = true;  (now handled by module)
+
   programs.git.enable = true;
+
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins;
-      [
-        harpoon2 # Add this line
-      ];
+    plugins = with pkgs.vimPlugins; [
+      harpoon2
+    ];
   };
-  home.file.".config/nvim".source =
-    config.lib.file.mkOutOfStoreSymlink /Users/lhh/nix-mac-setup/.config/nvim;
+
+  # Fixed Neovim config - using xdg.configFile (this was the problem)
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
+
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
     ../.config/configstore/update-notifier-netlify-cli.json;
+
   xdg.configFile."gh/config.yml".source = ../.config/gh/config.yml;
   xdg.configFile."gh/hosts.yml".source = ../.config/gh/hosts.yml;
   xdg.configFile."neofetch/config.conf".source =
     ../.config/neofetch/config.conf;
-  # REMOVED: xdg.configFile."tmux/tmux.conf".source = ../.config/tmux/tmux.conf;  (now managed by module)
-  home.stateVersion = "24.05";
+
+  home.stateVersion = "25.05";
 }

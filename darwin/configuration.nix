@@ -1,59 +1,53 @@
 { config, pkgs, lib, ... }: {
-  # Core system configuration
   system.stateVersion = 6;
   system.primaryUser = "lhh";
 
-  # Module imports
   imports = [ ../modules/tmux.nix ];
 
-  #Old modules
-  #imports = [ ../modules/yabai.nix ../modules/skhd.nix ../modules/tmux.nix ];
-
-  # User configuration
   users.users.lhh = {
     home = "/Users/lhh";
     description = "Main user account";
     shell = pkgs.zsh;
   };
 
-  # Nix and package configuration
   nix.package = pkgs.nix;
+
   nixpkgs.config = {
     allowUnfree = true;
     allowUnsupportedSystem = true;
+    permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
   };
 
-  # System packages organized by category
   environment.systemPackages = with pkgs; [
-    # Development tools
+    # Development
     cargo
     git
     git-lfs
     lean4
     neovim
-    nixfmt-classic
+    nixfmt
     nodejs
-    nodejs_20
     pyright
     rustc
     tree-sitter
 
-    # Vim plugins for neovim
+    # Vim plugins
     vimPlugins.vim-dadbod
     vimPlugins.vim-dadbod-ui
     vimPlugins.vim-dadbod-completion
 
-    # Python with data science packages
+    # Python
     (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
 
-    # Database tools
+    # Databases
     postgresql
-    mysql80
     sqlite
     sqls
     visidata
 
-    # Terminal utilities
+    # Terminal
     cmatrix
     eza
     fd
@@ -66,26 +60,22 @@
     wiki-tui
     zoxide
     newsboat
-    # handbrake
 
-    # Media tools
+    # Media
     audacity
     ffmpeg
     imagemagick
     inkscape
-    #labplot
     sox
 
-    # Document tools
+    # Documents
     librsvg
     mermaid-cli
     pdfarranger
     stirling-pdf
-    #texliveMedium
-    #texlive.combined.scheme-full
     typst
 
-    # Desktop applications
+    # Desktop apps
     bitwarden
     element-desktop
     firefox
@@ -95,7 +85,7 @@
     spotify
     vscode
 
-    # Specialized tools
+    # Other
     asciiquarium-transparent
     darwin.PowerManagement
     gnuradio
@@ -104,7 +94,6 @@
     todoist
   ];
 
-  # Shell configuration
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -113,10 +102,8 @@
     '';
   };
 
-  # Fonts
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  # Homebrew configuration
   homebrew = {
     enable = true;
     brews = [ "dark-mode" ];
@@ -131,15 +118,13 @@
     ];
   };
 
-  # Mac App Store installations
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
     mas install 937984704   # Amphetamine
     mas install 1289583905  # Pixelmator Pro
-    mas install 1192318775  # GeoExpert – World Geography
+    mas install 1192318775  # GeoExpert
   '';
 
-  # Desktop appearance configuration
   launchd.user.agents.desktopSetup = {
     serviceConfig = {
       Label = "org.nixos.desktop-setup";
@@ -158,7 +143,6 @@
     };
   };
 
-  # Window management
   services.skhd.enable = true;
   services.yabai = {
     enable = true;
@@ -166,7 +150,6 @@
     package = pkgs.yabai;
   };
 
-  # macOS system defaults
   system.defaults = {
     dock = {
       autohide = true;
@@ -197,6 +180,5 @@
     };
   };
 
-  # Accessibility for yabai scripting addition
   security.accessibilityPrograms = [ ];
 }
