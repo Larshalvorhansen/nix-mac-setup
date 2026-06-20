@@ -86,7 +86,6 @@
 
     # Other
     asciiquarium-transparent
-    gnuradio
     mas
     radicale
     todoist
