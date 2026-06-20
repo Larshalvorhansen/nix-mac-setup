@@ -53,7 +53,7 @@
     fd
     glow
     # neofetch
-neowofetch 
+# neowofetch 
     skim
     tmux
     when
