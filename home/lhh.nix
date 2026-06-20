@@ -68,6 +68,10 @@
       "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
 
   # Neovim config (correct & clean)
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
+
+  # Neovim config (single clean definition)
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nix-mac-setup/.config/nvim";
