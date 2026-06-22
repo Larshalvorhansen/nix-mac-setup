@@ -76,11 +76,13 @@
     typst
 
     # Desktop apps
+    bitwarden-desktop
     element-desktop
     firefox
     google-chrome
     kitty
     obsidian
+    signal-desktop
     spotify
     vscode
 
