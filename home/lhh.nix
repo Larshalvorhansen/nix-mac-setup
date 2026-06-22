@@ -51,6 +51,13 @@
     plugins = with pkgs.vimPlugins; [ harpoon2 ];
   };
 
+programs.rbw = {
+  enable = true;
+  settings = {
+    email = "larshalvorhansen1@gmail.com";
+    pinentry = pkgs.pinentry_mac; 
+  };
+};
   # nvim config temporarily removed to break the loop
 
   xdg.configFile."configstore/update-notifier-netlify-cli.json".source =
