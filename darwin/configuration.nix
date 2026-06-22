@@ -78,7 +78,6 @@ pinentry_mac
     typst
 
     # Desktop apps
-    bitwarden-desktop
     element-desktop
     firefox
     google-chrome
