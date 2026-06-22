@@ -53,6 +53,8 @@
     fd
     glow
     fastfetch
+rbw
+pinentry_mac
     skim
     tmux
     when
