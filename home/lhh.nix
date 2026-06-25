@@ -102,18 +102,6 @@
       "on-focused-monitor-changed" = [ "move-mouse monitor-lazy-center" ];
       "automatically-unhide-macos-hidden-apps" = false;
 
-      # Window Routing (Floating Rules)
-      "on-window-detected" = [
-        { "if" = { "app-name-regex-substring" = "telegram"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "finder"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "safari"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "dicord"; }; run = "layout floating"; } 
-        { "if" = { "app-name-regex-substring" = "discord"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "mail"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "trello"; }; run = "layout floating"; }
-        { "if" = { "app-name-regex-substring" = "quicktime"; }; run = "layout floating"; }
-      ];
-
       # Key Mapping
       "key-mapping" = { preset = "qwerty"; };
 
@@ -130,16 +118,11 @@
 
       # Main Bindings
       mode.main.binding = {
-        alt-ctrl-shift-f = "fullscreen";
-        alt-ctrl-f = "layout floating tiling";
 
         alt-shift-left = "join-with left";
         alt-shift-down = "join-with down";
         alt-shift-up = "join-with up";
         alt-shift-right = "join-with right";
-
-        alt-slash = "layout tiles horizontal vertical";
-        alt-comma = "layout accordion horizontal vertical";
 
         alt-h = "focus left";
         alt-j = "focus down";
@@ -152,9 +135,6 @@
         alt-shift-k = "move up";
         alt-shift-l = "move right";
 
-        alt-shift-minus = "resize smart -50";
-        alt-shift-equal = "resize smart +50";
-
         alt-1 = "workspace 1";
         alt-2 = "workspace 2";
         alt-3 = "workspace 3";
@@ -164,12 +144,6 @@
         alt-shift-2 = "move-node-to-workspace 2 --focus-follows-window";
         alt-shift-3 = "move-node-to-workspace 3 --focus-follows-window";
         alt-shift-4 = "move-node-to-workspace 4 --focus-follows-window";
-
-        alt-tab = "workspace-back-and-forth";
-        alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
-
-        alt-shift-semicolon = "mode service";
-        alt-shift-enter = "mode apps";
 
         # Application Launchers
 #        alt-o = "exec-and-forget open -a /Applications/Obsidian.app";
