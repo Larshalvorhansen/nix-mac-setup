@@ -94,6 +94,9 @@ pinentry_mac
     todoist
   ];
 
+homebrew = {
+  enable = false;
+};
   programs.zsh = {
     enable = true;
     enableCompletion = true;

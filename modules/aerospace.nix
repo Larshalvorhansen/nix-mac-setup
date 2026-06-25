@@ -1,75 +1,52 @@
-{ config, lib, pkgs, ... }:
+settings = {
+      # Startup Hooks (Keeping your top bar & window border integrations active)
+      "after-startup-command" = [ "exec-and-forget sketchybar" ];
+      "exec-on-workspace-change" = [
+        "exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=0"
+      ];
 
-let
-  gopath = "${pkgs.go}/share/go";
+      "start-at-login" = false;
 
-  aerospaceBin = pkgs.stdenv.mkDerivation {
-    pname = "aerospace";
-    version = "unstable";
+      # Simple, clean gaps so 1 or 2 windows look sharp
+      gaps = {
+        inner.horizontal = 10;
+        inner.vertical = 10;
+        outer = {
+          left = 12;
+          right = 12;
+          bottom = 12;
+          top = 12;
+        };
+      };
 
-    src = pkgs.fetchFromGitHub {
-      owner = "nikitabobko";
-      repo = "AeroSpace";
-      rev = "1e19313b357647e15f4c59aa59a4c044aeb415f9";
-      sha256 = "sha256-bU9PA26MFAO8BD2DGakTScLqtqz3LDiGTxlDpfFIjJ0=";
+      # Only the essential keybindings
+      mode.main.binding = {
+        # Vim-style Window Selection
+        alt-h = "focus left";
+        alt-j = "focus down";
+        alt-k = "focus up";
+        alt-l = "focus right";
+
+        # Vim-style Window Arrangement
+        alt-shift-h = "move left";
+        alt-shift-j = "move down";
+        alt-shift-k = "move up";
+        alt-shift-l = "move right";
+
+        # Smart/Fast Workspace Switching
+        alt-tab = "workspace-back-and-forth";
+
+        # The 4 Core Workspaces
+        alt-1 = "workspace 1";
+        alt-2 = "workspace 2";
+        alt-3 = "workspace 3";
+        alt-4 = "workspace 4";
+
+        # Moving windows across your 4 workspaces
+        alt-shift-1 = "move-node-to-workspace 1";
+        alt-shift-2 = "move-node-to-workspace 2";
+        alt-shift-3 = "move-node-to-workspace 3";
+        alt-shift-4 = "move-node-to-workspace 4";
+      };
     };
-
-    buildInputs = [ pkgs.go ];
-
-    GOPATH = "$(mktemp -d)/gopath";
-
-    buildPhase = ''
-      mkdir -p "$GOPATH/src/github.com/nikitabobko"
-      cp -r . "$GOPATH/src/github.com/nikitabobko/AeroSpace"
-      cd "$GOPATH/src/github.com/nikitabobko/AeroSpace"
-      export GOPATH="$GOPATH"
-      export GOCACHE=$(mktemp -d)
-      go build -o aerospace
-    '';
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp aerospace $out/bin/
-    '';
-  };
-
-  plistPath = "/Users/lhh/Library/LaunchAgents/dev.aerospace.plist";
-  plistContents = ''
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>dev.aerospace</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>${aerospaceBin}/bin/aerospace</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-      <key>EnvironmentVariables</key>
-      <dict>
-        <key>PATH</key>
-        <string>${pkgs.lib.makeBinPath [ pkgs.go pkgs.coreutils ]}</string>
-      </dict>
-    </dict>
-    </plist>
-  '';
-in {
-  environment.systemPackages = [ aerospaceBin ];
-
-  system.activationScripts.aerospace = {
-    text = ''
-            echo "Installing AeroSpace LaunchAgent..."
-            mkdir -p ~/Library/LaunchAgents
-            cat > ${plistPath} <<EOF
-      ${plistContents}
-      EOF
-            launchctl unload ${plistPath} || true
-            launchctl load ${plistPath}
-    '';
-  };
-}
