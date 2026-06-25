@@ -17,15 +17,29 @@
 
 programs.neovim = {
     enable = true;
-    withRuby = false;
-    withPython3 = false;
-    # Delete the plugins = [ pkgs.vimPlugins.harpoon2 ]; line 
-    # LazyVim will manage all plugins via Lua now.
-    # Keep this minimal; don't load plugins here
-    extraLuaConfig = ''
-      vim.opt.clipboard = "unnamedplus"
-    '';
-  };
+    vimAlias = true;
+    viAlias = true;
+    extraPackages = with pkgs;
+      [
+        pyright
+        basedpyright
+        lua-language-server
+        stylua
+        ripgrep
+        beancount-language-server
+        gopls
+        go
+        nil
+        nodePackages.vscode-langservers-extracted
+        nodePackages.yaml-language-server
+        marksman
+        ruff
+        lua51Packages.tiktoken_core
+        gnumake
+        python3Packages.jedi-language-server
+      ]);
+    plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
+};
 
   # Point this to a folder in your dotfiles repo containing your LazyVim Lua files
   xdg.configFile."nvim".source = ../.config/nvim;
