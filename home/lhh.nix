@@ -15,6 +15,21 @@
     typstyle visidata websocat w3m wget yt-dlp zotero
   ];
 
+programs.neovim = {
+    enable = true;
+    withRuby = false;
+    withPython3 = false;
+    # Delete the plugins = [ pkgs.vimPlugins.harpoon2 ]; line 
+    # LazyVim will manage all plugins via Lua now.
+    # Keep this minimal; don't load plugins here
+    extraLuaConfig = ''
+      vim.opt.clipboard = "unnamedplus"
+    '';
+  };
+
+  # Point this to a folder in your dotfiles repo containing your LazyVim Lua files
+  xdg.configFile."nvim".source = ../.config/nvim;
+
   # Zsh Configuration
   programs.zsh = {
     enable = true;
