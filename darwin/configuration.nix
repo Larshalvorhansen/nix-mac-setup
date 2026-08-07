@@ -65,6 +65,7 @@ pinentry_mac
 
     # Media
     audacity
+davinci-resolve
     ffmpeg
     imagemagick
     inkscape
