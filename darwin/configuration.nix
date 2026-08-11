@@ -65,7 +65,7 @@ pinentry_mac
 
     # Media
     audacity
-davinci-resolve
+#davinci-resolve
     ffmpeg
     imagemagick
     inkscape
@@ -124,7 +124,7 @@ homebrew = {
         "-e"
         ''
           tell application "Finder"
-            set desktop picture to POSIX file "/Users/lhh/nix-mac-setup/wallpaper.png"
+            set desktop picture to POSIX file "/Users/lhh/nix-mac-setup/wallpaper.jpg"
             do shell script "defaults write com.apple.finder CreateDesktop -bool false"
             do shell script "killall Finder"
           end tell

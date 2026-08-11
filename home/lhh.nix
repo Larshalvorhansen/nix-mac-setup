@@ -8,38 +8,88 @@
 
   # User Packages
   home.packages = with pkgs; [
-    alacritty black cmatrix cowsay csvlens discord eza fd ffmpeg fzf gh glow
-    go gopls harper iamb jless karabiner-elements kjv librsvg lynx mas
-    netlify-cli nixfmt prettier python3 ripgrep rust-analyzer rustfmt shfmt
-    skimpdf stylua tldr tinymist tmux tree typescript-language-server typst
-    typstyle visidata websocat w3m wget yt-dlp zotero
+    alacritty
+    black
+    cmatrix
+    cowsay
+    csvlens
+    discord
+    eza
+    fd
+    ffmpeg
+    fzf
+    gh
+    glow
+    go
+    gopls
+    harper
+    iamb
+    jless
+    karabiner-elements
+    kjv
+    librsvg
+    lynx
+    mas
+    netlify-cli
+    nixfmt
+    prettier
+    python3
+    ripgrep
+    rust-analyzer
+    rustfmt
+    shfmt
+    skimpdf
+    stylua
+    tldr
+    tinymist
+    tmux
+    tree
+    typescript-language-server
+    typst
+    typstyle
+    visidata
+    websocat
+    w3m
+    wget
+    yt-dlp
+    zotero
   ];
 
-programs.neovim = {
+  programs.neovim = {
     enable = true;
     vimAlias = true;
     viAlias = true;
-    extraPackages = with pkgs;
-      [
-        pyright
-        basedpyright
-        lua-language-server
-        stylua
-        ripgrep
-        beancount-language-server
-        gopls
-        go
-        nil
-        nodePackages.vscode-langservers-extracted
-        nodePackages.yaml-language-server
-        marksman
-        ruff
-        lua51Packages.tiktoken_core
-        gnumake
-        python3Packages.jedi-language-server
-      ]);
-    plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
-};
+    withRuby = false;
+    withPython3 = false;
+
+    extraPackages = with pkgs; [
+      pyright
+      basedpyright
+      lua-language-server
+      stylua
+      ripgrep
+      beancount-language-server
+      gopls
+      go
+      nil
+      vscode-langservers-extracted
+      yaml-language-server
+      marksman
+      ruff
+      lua51Packages.tiktoken_core
+      gnumake
+      python3Packages.jedi-language-server
+    ];
+
+    plugins = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
+      harpoon2
+    ];
+
+    extraLuaConfig = ''
+      vim.opt.clipboard = "unnamedplus"
+    '';
+  };
 
   # Point this to a folder in your dotfiles repo containing your LazyVim Lua files
   xdg.configFile."nvim".source = ../.config/nvim;
@@ -50,19 +100,30 @@ programs.neovim = {
     enableCompletion = true;
 
     shellAliases = {
-      g = "git"; k = "kubectl"; ls = "eza --icons"; tree = "eza --tree --icons";
-      ll = "ls -alh"; gs = "git status"; conf = "nvim $HOME/nix-mac-setup/.config";
-      nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix"; n = "nvim"; t = "tmux";
+      g = "git";
+      k = "kubectl";
+      ls = "eza --icons";
+      tree = "eza --tree --icons";
+      ll = "ls -alh";
+      gs = "git status";
+      conf = "nvim $HOME/nix-mac-setup/.config";
+      nixing = "nvim $HOME/nix-mac-setup/home/lhh.nix";
+      n = "nvim";
+      t = "tmux";
       ta = ''tmux attach -t "$(tmux ls -F '#{session_name}' | head -n 0)"'';
-      ts = "tmux choose-tree -s"; todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
-      won = "networksetup -setairportpower en0 on"; woff = "networksetup -setairportpower en0 off";
+      ts = "tmux choose-tree -s";
+      todo = "cd $HOME/Documents/dailyTodo && nvim todo.md";
+      won = "networksetup -setairportpower en0 on";
+      woff = "networksetup -setairportpower en0 off";
       batt = "pmset -g batt";
     };
 
     initContent = ''
       source ${
         pkgs.fetchFromGitHub {
-          owner = "zdharma-continuum"; repo = "zinit"; rev = "v3.8.0";
+          owner = "zdharma-continuum";
+          repo = "zinit";
+          rev = "v3.8.0";
           sha256 = "sha256-yGUcwrwLXpsB3nzGITbi/0ycZej09GvozDoscEf7qp4=";
         }
       }/zinit.zsh
@@ -78,25 +139,12 @@ programs.neovim = {
   # Git Configuration
   programs.git.enable = true;
 
-# Neovim Configuration
-  programs.neovim = {
-    enable = true;
-    withRuby = false;
-    withPython3 = false;
-    plugins = with pkgs.vimPlugins; [ harpoon2 ];
-    
-    # This hooks Neovim up to the macOS system clipboard (pbcopy/pbpaste)
-    extraLuaConfig = ''
-      vim.opt.clipboard = "unnamedplus"
-    '';
-  };
-
   # Bitwarden CLI Configuration
   programs.rbw = {
     enable = true;
     settings = {
       email = "larshalvorhansen1@gmail.com";
-      pinentry = pkgs.pinentry_mac; 
+      pinentry = pkgs.pinentry_mac;
     };
   };
 
@@ -132,16 +180,33 @@ programs.neovim = {
       "automatically-unhide-macos-hidden-apps" = false;
 
       # Key Mapping
-      "key-mapping" = { preset = "qwerty"; };
+      "key-mapping" = {
+        preset = "qwerty";
+      };
 
       # Gaps
       gaps = {
-        inner.horizontal = [ { monitor.main = 40; } 10 ];
+        inner.horizontal = [
+          { monitor.main = 40; }
+          10
+        ];
         outer = {
-          left = [ { monitor.main = 350; } 20 ];
-          right = [ { monitor.main = 350; } 20 ];
-          bottom = [ { monitor.main = 100; } 10 ];
-          top = [ { monitor.main = 100; } 10 ];
+          left = [
+            { monitor.main = 350; }
+            20
+          ];
+          right = [
+            { monitor.main = 350; }
+            20
+          ];
+          bottom = [
+            { monitor.main = 100; }
+            10
+          ];
+          top = [
+            { monitor.main = 100; }
+            10
+          ];
         };
       };
 
@@ -175,20 +240,35 @@ programs.neovim = {
         alt-shift-4 = "move-node-to-workspace 4 --focus-follows-window";
 
         # Application Launchers
-#        alt-o = "exec-and-forget open -a /Applications/Obsidian.app";
+        #        alt-o = "exec-and-forget open -a /Applications/Obsidian.app";
       };
 
       # Service Mode
       mode.service.binding = {
-        esc = [ "reload-config" "mode main" ];
-        r = [ "flatten-workspace-tree" "mode main" ];
-        f = [ "layout floating tiling" "mode main" ];
-        backspace = [ "close-all-windows-but-current" "mode main" ];
+        esc = [
+          "reload-config"
+          "mode main"
+        ];
+        r = [
+          "flatten-workspace-tree"
+          "mode main"
+        ];
+        f = [
+          "layout floating tiling"
+          "mode main"
+        ];
+        backspace = [
+          "close-all-windows-but-current"
+          "mode main"
+        ];
       };
 
       # Quick App Switch Modal
       mode.apps.binding = {
-        alt-w = [ "exec-and-forget open -a /Applications/WezTerm.app" "mode main" ];
+        alt-w = [
+          "exec-and-forget open -a /Applications/WezTerm.app"
+          "mode main"
+        ];
       };
 
       # Monitor Assignments
