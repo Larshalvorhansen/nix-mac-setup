@@ -82,11 +82,11 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
+      #nvim-treesitter.withAllGrammars
       harpoon2
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       vim.opt.clipboard = "unnamedplus"
     '';
   };
