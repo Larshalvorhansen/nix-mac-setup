@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   system.stateVersion = 6;
   system.primaryUser = "lhh";
 
@@ -39,7 +45,14 @@
     vimPlugins.vim-dadbod-completion
 
     # Python
-    (python3.withPackages (ps: with ps; [ pandas matplotlib numpy yfinance ]))
+    (python3.withPackages (
+      ps: with ps; [
+        pandas
+        matplotlib
+        numpy
+        yfinance
+      ]
+    ))
 
     # Databases
     postgresql
@@ -53,8 +66,8 @@
     fd
     glow
     fastfetch
-rbw
-pinentry_mac
+    rbw
+    pinentry_mac
     skim
     tmux
     when
@@ -65,7 +78,7 @@ pinentry_mac
 
     # Media
     audacity
-#davinci-resolve
+    #davinci-resolve
     ffmpeg
     imagemagick
     inkscape
@@ -86,6 +99,7 @@ pinentry_mac
     obsidian
     signal-desktop
     spotify
+    teams
     vscode
 
     # Other
@@ -95,9 +109,9 @@ pinentry_mac
     todoist
   ];
 
-homebrew = {
-  enable = false;
-};
+  homebrew = {
+    enable = false;
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -107,7 +121,6 @@ homebrew = {
   };
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
 
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
@@ -133,7 +146,6 @@ homebrew = {
       RunAtLoad = true;
     };
   };
-
 
   system.defaults = {
     dock = {
