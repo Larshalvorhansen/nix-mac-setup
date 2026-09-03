@@ -1,0 +1,84 @@
+2026-09-02 10:56:46,497 INFO s.s.S.SPDFApplication [main] Additional features in jar
+2026-09-02 10:56:46,498 INFO s.s.c.c.ConfigInitializer [main] Current settings file line count: 0
+2026-09-02 10:56:46,500 INFO s.s.c.c.ConfigInitializer [main] Created settings file from template
+2026-09-02 10:56:46,500 INFO s.s.c.c.ConfigInitializer [main] Created custom_settings file: ./configs/custom_settings.yml
+2026-09-02 10:56:46,500 INFO s.s.S.SPDFApplication [main] Settings file: ./configs/settings.yml
+2026-09-02 10:56:46,500 INFO s.s.S.SPDFApplication [main] Custom settings file: ./configs/custom_settings.yml
+2026-09-02 10:56:46,837 INFO s.s.S.SPDFApplication [main] Starting SPDFApplication v2.10.1 using Java 25.0.3 with PID 27944 (/nix/store/63h9fwkl8ryz90mxmn4yxkdid4n904s3-stirling-pdf-2.10.1/share/stirling-pdf/Stirling-PDF.jar started by lhh in /Users/lhh/nix-mac-setup/darwin)
+2026-09-02 10:56:46,837 INFO s.s.S.SPDFApplication [main] The following 1 profile is active: "security"
+2026-09-02 10:56:48,689 INFO s.s.S.c.MultipartConfiguration [main] Using default multipart file upload limit: 2000MB
+2026-09-02 10:56:49,272 INFO s.s.p.s.c.DatabaseConfig [main] Using default H2 database
+2026-09-02 10:56:52,211 INFO s.s.p.s.s.KeyPersistenceService [main] No existing keys found in directory, generating new keypair
+2026-09-02 10:56:52,344 INFO s.s.p.s.s.KeyPersistenceService [main] Generated and stored new JWT keypair: jwt-key-2026-09-02-105652
+2026-09-02 10:56:52,467 INFO s.s.p.s.s.DatabaseService [main] Source directory does not exist: configs/db/backup
+2026-09-02 10:56:53,019 INFO s.s.c.c.TempFileConfiguration [main] Created temporary directory: /var/folders/4z/x689_ryx01j46892hz8pn6880000gn/T/stirling-pdf
+2026-09-02 10:56:53,033 INFO s.s.c.c.RuntimePathConfig [main] Registered watched folder path: /Users/lhh/nix-mac-setup/darwin/pipeline/watchedFolders
+2026-09-02 10:56:53,034 INFO s.s.c.c.RuntimePathConfig [main] Using Tesseract data path: /usr/share/tesseract-ocr/5/tessdata
+2026-09-02 10:56:53,065 WARN s.s.S.c.ExternalAppDepConfig [virtual-57] Missing dependency: ocrmypdf - Disabling group: OCRmyPDF (Affected features: Ocr PDF)
+2026-09-02 10:56:53,065 WARN s.s.S.c.ExternalAppDepConfig [virtual-52] Missing dependency: rar - Disabling group: rar (Affected features: PDF To Cbr)
+2026-09-02 10:56:53,065 WARN s.s.S.c.ExternalAppDepConfig [virtual-62] Missing dependency: weasyprint - Disabling group: Weasyprint (Affected features: Eml To PDF, Markdown To PDF, Url To PDF, Html To PDF)
+2026-09-02 10:56:53,065 WARN s.s.S.c.ExternalAppDepConfig [virtual-63] Missing dependency: pdftohtml - Disabling group: Pdftohtml (Affected features: PDF To Html, PDF To Markdown)
+2026-09-02 10:56:53,066 WARN s.s.S.c.ExternalAppDepConfig [virtual-67] Missing dependency: gs - Disabling group: Ghostscript (Affected features: Replace Invert PDF, Repair, Compress PDF, Scanner Effect, Vector To PDF, PDF To Vector, Crop)
+2026-09-02 10:56:53,067 WARN s.s.S.c.ExternalAppDepConfig [virtual-60] Missing dependency: qpdf - Disabling group: qpdf (Affected features: Repair, Compress PDF)
+2026-09-02 10:56:53,068 WARN s.s.S.c.ExternalAppDepConfig [virtual-54] Missing dependency: tesseract - Disabling group: tesseract (Affected features: Ocr PDF)
+2026-09-02 10:56:53,069 WARN s.s.S.c.ExternalAppDepConfig [virtual-68] Missing dependency: soffice - Disabling group: LibreOffice (Affected features: File To PDF, PDF To Xml, PDF To Presentation, PDF To Pdfa, PDF To Word, PDF To Rtf, PDF To Html)
+2026-09-02 10:56:53,070 WARN s.s.S.c.ExternalAppDepConfig [virtual-69] Missing dependency: unoconvert - Disabling group: Unoconvert (Affected features: File To PDF)
+2026-09-02 10:56:53,071 WARN s.s.S.c.ExternalAppDepConfig [virtual-70] Missing dependency: ebook-convert - Disabling group: Calibre (Affected features: PDF To Epub)
+2026-09-02 10:56:53,125 WARN s.s.S.c.ExternalAppDepConfig [main] OpenCV not available in Python - Disabling OpenCV features: Extract Image Scans
+2026-09-02 10:56:53,126 INFO s.s.S.c.EndpointConfiguration [main] Disabled tool groups: Calibre, Ghostscript, LibreOffice, OCRmyPDF, OpenCV, Pdftohtml, Unoconvert, Weasyprint, qpdf, rar, tesseract (endpoints may have alternative implementations)
+2026-09-02 10:56:53,127 INFO s.s.S.c.EndpointConfiguration [main] Disabled functional groups: enterprise
+2026-09-02 10:56:53,127 INFO s.s.S.c.EndpointConfiguration [main] Total disabled endpoints: 20. Disabled endpoints: eml-to-pdf, extract-image-scans, file-to-pdf, html-to-pdf, ocr-pdf, pdf-to-cbr, pdf-to-epub, pdf-to-html, pdf-to-markdown, pdf-to-pdfa, pdf-to-presentation, pdf-to-rtf, pdf-to-vector, pdf-to-word, pdf-to-xml, repair, replace-invert-pdf, scanner-effect, url-to-pdf, vector-to-pdf
+2026-09-02 10:56:53,362 INFO s.s.S.s.VeraPDFService [main] VeraPDF Greenfield initialized successfully
+2026-09-02 10:56:53,389 INFO s.s.S.s.PdfJsonFallbackFontService [main] Using fallback font location: classpath:/static/fonts/NotoSans-Regular.ttf
+2026-09-02 10:56:53,391 INFO s.s.S.s.p.PdfJsonFontService [main] [FONT-DEBUG] CFF conversion enabled, checking tool availability...
+2026-09-02 10:56:53,395 WARN s.s.S.s.p.PdfJsonFontService [main] [FONT-DEBUG] Python command '/opt/venv/bin/python3' not found; Python CFF conversion disabled
+2026-09-02 10:56:53,399 WARN s.s.S.s.p.PdfJsonFontService [main] [FONT-DEBUG] FontForge command 'fontforge' not found; FontForge CFF conversion disabled
+2026-09-02 10:56:53,399 INFO s.s.S.s.p.PdfJsonFontService [main] [FONT-DEBUG] Selected CFF converter method: python
+2026-09-02 10:56:53,938 INFO s.s.S.s.p.t.l.Type3FontLibrary [main] [TYPE3] Loaded 61 Type3 library entries (signatures=81, aliases=64) from classpath:/type3/library/index.json
+2026-09-02 10:56:54,039 INFO s.s.c.s.MobileScannerService [main] Mobile scanner temp directory: /var/folders/4z/x689_ryx01j46892hz8pn6880000gn/T/stirling-mobile-scanner
+2026-09-02 10:56:54,205 INFO s.s.S.s.CertificateValidationService [main] Loading certificates from Java system trust store
+2026-09-02 10:56:54,216 INFO s.s.S.s.CertificateValidationService [main] Loaded 108 CA certificates from Java system trust store
+2026-09-02 10:56:54,216 INFO s.s.S.s.CertificateValidationService [main] Loading bundled Mozilla CA certificates from resources
+2026-09-02 10:56:54,232 INFO s.s.S.c.w.ReactRoutingController [main] Static files custom path: ./customFiles/static/
+2026-09-02 10:56:54,291 INFO s.s.c.s.TempFileCleanupService [main] Created LibreOffice temp directory: /var/folders/4z/x689_ryx01j46892hz8pn6880000gn/T/stirling-pdf/libreoffice
+2026-09-02 10:56:54,292 INFO s.s.c.s.TempFileCleanupService [main] Running in Server-jar mode, using conservative cleanup strategy
+2026-09-02 10:56:54,293 INFO s.s.c.s.TempFileCleanupService [main] Startup cleanup complete. Deleted 0 temporary files/directories
+2026-09-02 10:56:54,308 INFO s.s.c.u.FileMonitor [main] Monitoring directory: /Users/lhh/nix-mac-setup/darwin/pipeline/watchedFolders
+2026-09-02 10:56:54,796 INFO s.s.p.s.s.UserService [main] MFA required set to true for user admin {mfaEnabled=false, mfaRequired=false}
+2026-09-02 10:56:54,808 INFO s.s.p.s.s.DatabaseService [main] Database export completed: configs/backup/db/backup_202609021056.sql
+2026-09-02 10:56:54,809 INFO s.s.p.s.s.DatabaseService [main] Checksum for backup_202609021056.sql: ab80f0f0e729005216391e0671f35fe2c1d2d8f957d74ded6c51b6a652c45648
+2026-09-02 10:56:54,823 INFO s.s.p.s.InitialSecuritySetup [main] Default admin user created: admin
+2026-09-02 10:56:54,906 INFO s.s.p.s.s.UserService [main] MFA required set to true for user STIRLING-PDF-BACKEND-API-USER {mfaEnabled=false, mfaRequired=false}
+2026-09-02 10:56:54,910 INFO s.s.p.s.s.DatabaseService [main] Database export completed: configs/backup/db/backup_202609021056.sql
+2026-09-02 10:56:54,910 INFO s.s.p.s.s.DatabaseService [main] Checksum for backup_202609021056.sql: 98c0365b2a0af79205ca83b838f12e7771df29010f51d82149b69a3c1b4fb38e
+2026-09-02 10:56:54,942 INFO s.s.p.s.s.DatabaseService [main] Database export completed: configs/backup/db/backup_202609021056.sql
+2026-09-02 10:56:54,943 INFO s.s.p.s.s.DatabaseService [main] Checksum for backup_202609021056.sql: 98e639a92afabae34f4622445dda84747aa5ab04c684120ecd663e82b2ec533e
+2026-09-02 10:56:54,952 INFO s.s.p.s.InitialSecuritySetup [main] Internal API user created: STIRLING-PDF-BACKEND-API-USER
+2026-09-02 10:56:54,955 INFO s.s.p.s.UserLicenseSettingsService [main] Initializing user license settings
+2026-09-02 10:56:54,959 INFO s.s.p.s.UserLicenseSettingsService [main] Existing installation detected. Grandfathering 5 users (current: 1, minimum: 5)
+2026-09-02 10:56:54,960 WARN s.s.p.s.UserLicenseSettingsService [main] GRANDFATHERING LOCKED: 5 users. This value can never be changed.
+2026-09-02 10:56:54,962 INFO s.s.p.s.UserLicenseSettingsService [main] License check result: type=NORMAL, requiresPaid=true, hasPaid=false
+2026-09-02 10:56:55,352 INFO s.s.p.s.c.SecurityConfiguration [main] No CORS allowed origins configured in settings.yml (system.corsAllowedOrigins); allowing all origins.
+2026-09-02 10:56:56,036 INFO s.s.c.s.JobQueue [main] Starting JobQueue lifecycle
+2026-09-02 10:56:56,073 INFO s.s.S.SPDFApplication [main] Started SPDFApplication in 9.571 seconds (process running for 10.11)
+2026-09-02 10:56:56,073 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-09-02 10:56:56,074 WARN s.s.c.u.FileMonitor [scheduled-vt-6] Not monitoring any directories; attempting to re-register root paths.
+2026-09-02 10:56:56,074 INFO s.s.S.c.a.p.PipelineDirectoryProcessor [scheduled-vt-4] Created directory: /Users/lhh/nix-mac-setup/darwin/pipeline/watchedFolders
+2026-09-02 10:56:56,074 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-09-02 10:56:56,074 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-09-02 10:56:56,074 INFO s.s.c.u.FileMonitor [scheduled-vt-6] Registered directory: /Users/lhh/nix-mac-setup/darwin/pipeline/watchedFolders
+2026-09-02 10:56:56,080 WARN o.s.c.e.SpringDocAppInitializer [main] SpringDoc /v1/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-02 10:56:56,080 WARN o.s.c.e.SpringDocAppInitializer [main] SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-02 10:56:56,080 INFO s.s.S.SPDFApplication [main] Stirling-PDF running on port: 8080
+2026-09-02 10:56:56,080 INFO s.s.p.s.ServerCertificateService [main] Server certificate feature requires Pro or Enterprise license
+2026-09-02 10:56:56,081 INFO s.s.p.s.UserLicenseSettingsService [main] License check result: type=NORMAL, requiresPaid=true, hasPaid=false
+2026-09-02 10:56:56,082 INFO s.s.S.SPDFApplication [main] Stirling-PDF Started.
+2026-09-02 10:56:56,082 INFO s.s.S.SPDFApplication [main] Navigate to http://localhost:8080/
+2026-09-02 10:58:11,800 INFO s.s.c.c.TempFileShutdownHook [Thread-2] Shutdown cleanup complete. Deleted 0 temporary files/directories
+2026-09-02 10:58:11,811 INFO s.s.c.s.JobQueue [SpringApplicationShutdownHook] Stopping JobQueue lifecycle
+2026-09-02 10:58:11,812 INFO s.s.c.s.JobQueue [SpringApplicationShutdownHook] Shutting down job queue
+2026-09-02 10:58:11,812 INFO s.s.c.s.JobQueue [SpringApplicationShutdownHook] Job queue shutdown complete. Stats: total=0, rejected=0
+2026-09-02 10:58:11,820 INFO s.s.c.c.TempFileShutdownHook [SpringApplicationShutdownHook] Application shutting down, cleaning up temporary files
+2026-09-02 10:58:11,821 INFO s.s.c.c.TempFileShutdownHook [SpringApplicationShutdownHook] Shutdown cleanup complete. Deleted 0 temporary files/directories
+2026-09-02 10:58:11,821 INFO s.s.c.s.ResourceMonitor [SpringApplicationShutdownHook] Shutting down resource monitoring
+2026-09-02 10:58:11,830 INFO s.s.c.s.TaskManager [SpringApplicationShutdownHook] Shutting down job result cleanup executor
