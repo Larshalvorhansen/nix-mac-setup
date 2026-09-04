@@ -110,7 +110,10 @@
   ];
 
   homebrew = {
-    enable = false;
+    enable = true;
+    casks = [
+      "xquartz"
+    ];
   };
   programs.zsh = {
     enable = true;
