@@ -85,6 +85,7 @@
     sox
 
     # Documents
+    pandoc
     librsvg
     mermaid-cli
     pdfarranger
