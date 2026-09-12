@@ -91,6 +91,7 @@
     pdfarranger
     stirling-pdf
     typst
+    typst-live
 
     # Desktop apps
     element-desktop
