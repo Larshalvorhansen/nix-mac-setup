@@ -103,6 +103,7 @@
     spotify
     teams
     vscode
+    wireshark
 
     # Other
     asciiquarium-transparent
