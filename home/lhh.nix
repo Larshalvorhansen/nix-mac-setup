@@ -162,7 +162,7 @@
       # Notify Sketchybar & Borders about workspace changes safely without subshell splitting
       "exec-on-workspace-change" = [
         "exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
-        "exec-and-forget borders active_color=0xff00ff00 inactive_color=0xff1a4d1a width=4"
+        "exec-and-forget borders active_color=0xff00ff00 inactive_color=0xff1a4d1a width=7"
       ];
 
       # Start AeroSpace at login
