@@ -204,7 +204,6 @@
     2 = "^DELL U.*$"
     3 = "^DELL S.*$"
     EOF
-    chown -R lhh:staff /Users/lhh/.config/aerospace
   '';
 
   launchd.user.agents.desktopSetup = {

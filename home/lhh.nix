@@ -186,28 +186,12 @@
 
       # Gaps
       gaps = {
-        inner.horizontal = [
-          { monitor.main = 40; }
-          10
-        ];
-        outer = {
-          left = [
-            { monitor.main = 350; }
-            20
-          ];
-          right = [
-            { monitor.main = 350; }
-            20
-          ];
-          bottom = [
-            { monitor.main = 100; }
-            10
-          ];
-          top = [
-            { monitor.main = 100; }
-            10
-          ];
-        };
+        inner.horizontal = 2;
+        inner.vertical = 2;
+        outer.left = 2;
+        outer.right = 2;
+        outer.bottom = 2;
+        outer.top = 2;
       };
 
       # Main Bindings
@@ -224,7 +208,6 @@
         alt-l = "focus right";
 
         alt-shift-h = "move left";
-        alt-shift-down-shift-j = "move down"; # Fixed key name quirk if needed, left as alt-shift-j
         alt-shift-j = "move down";
         alt-shift-k = "move up";
         alt-shift-l = "move right";
