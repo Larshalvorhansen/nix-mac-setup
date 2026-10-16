@@ -154,13 +154,14 @@
     launchd.enable = true; # Ensures Home Manager handles the background service lifecycle
 
     settings = {
+      config-version = 2;
       # Startup Commands
       "after-startup-command" = [ "exec-and-forget sketchybar" ];
 
       # Notify Sketchybar & Borders about workspace changes safely without subshell splitting
       "exec-on-workspace-change" = [
         "exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
-        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=0"
+        "exec-and-forget borders active_color=0xff00ff00 inactive_color=0xff1a4d1a width=4"
       ];
 
       # Start AeroSpace at login
