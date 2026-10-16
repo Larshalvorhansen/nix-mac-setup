@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     alacritty
     black
+    jankyborders
     cmatrix
     cowsay
     csvlens
