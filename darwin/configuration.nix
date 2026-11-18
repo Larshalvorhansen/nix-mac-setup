@@ -133,19 +133,19 @@
 
   fonts.packages = with pkgs; [
     # Sans-serif: headings, posters, slides
-    source-sans          # Source Sans 3 (this poster's headings)
+    source-sans # Source Sans 3 (this poster's headings)
     inter
-    ibm-plex             # whole family: Sans, Serif, Mono, Condensed
-    fira                 # Fira Sans
+    ibm-plex # whole family: Sans, Serif, Mono, Condensed
+    fira # Fira Sans
     roboto
     open-sans
 
     # Serif: body text, papers, theses
-    source-serif         # Source Serif 4
-    libertinus           # Libertinus Serif/Sans/Math
+    source-serif # Source Serif 4
+    libertinus # Libertinus Serif/Sans/Math
     eb-garamond
-    stix-two             # Times-like, with matching maths font
-    gyre-fonts           # TeX Gyre: Pagella, Termes, Heros, …
+    stix-two # Times-like, with matching maths font
+    gyre-fonts # TeX Gyre: Pagella, Termes, Heros, …
 
     # Monospace: code
     jetbrains-mono
@@ -153,10 +153,9 @@
     nerd-fonts.jetbrains-mono
 
     # Coverage and compatibility
-    noto-fonts           # fallback for almost any script, incl. Norwegian
-    liberation_ttf       # same metrics as Arial/Times/Courier, for matching Word docs
+    noto-fonts # fallback for almost any script, incl. Norwegian
+    liberation_ttf # same metrics as Arial/Times/Courier, for matching Word docs
   ];
-}
   system.activationScripts.masApps.text = ''
     echo "Installing App Store apps with mas..."
     mas install 937984704   # Amphetamine
